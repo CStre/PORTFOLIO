@@ -1,0 +1,16 @@
+<main>
+    <ul>
+        <li *ngFor="let cat of cats">
+            <mat-card>
+                <mat-card-content [routerLink]="'cat/' + cat.id">
+                    <h4>{{cat.name}}</h4>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-stroked-button [routerLink]="'cat/' + cat.id">
+                        Select Cat
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </li>
+    </ul>
+</main>

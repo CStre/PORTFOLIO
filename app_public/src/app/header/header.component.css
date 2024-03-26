@@ -1,0 +1,26 @@
+nav {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: aqua;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+li.rightLink {
+    border-left-color: blueviolet;
+    border-left-width: 2px;
+    border-left-style: solid;
+    padding-left: 1%;
+}
+
+li.leftLink {
+    padding-right: 1%;
+}

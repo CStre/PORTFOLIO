@@ -1,0 +1,15 @@
+<form (ngSubmit)="addCat(catForm)" #catForm="ngForm">
+    <mat-form-field>
+        <label>Name</label>
+        <input type="text" id="name" name="name" ngModel matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <label>Age</label>
+    <input type="number" id="age" name="age" ngModel matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <label>Favorite Toy</label>
+        <input type="text" id="favoriteToy" name="favoriteToy" ngModel matInput>
+    </mat-form-field>
+    <button type="submit" mat-stroked-button>Add Cat</button>
+</form>

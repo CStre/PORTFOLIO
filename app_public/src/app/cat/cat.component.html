@@ -1,0 +1,56 @@
+<form (submit)="updateCat(catForm)" #catForm="ngForm" *ngIf="!loading && cat">
+    <mat-card>
+        <mat-card-content>
+            <mat-form-field>
+                <label for="name">Name</label>
+                <input
+                    [disabled]="!editing"
+                    type="text"
+                    id="name"
+                    name="name"
+                    [(ngModel)]="cat!.name"
+                    matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <label for="age">Age</label>
+                <input
+                    [disabled]="!editing"
+                    type="number"
+                    id="age"
+                    name="age"
+                    [(ngModel)]="cat!.age"
+                    matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <label for="favoriteToy">Favorite Toy</label>
+                <input
+                    [disabled]="!editing"
+                    type="text"
+                    id="favoriteToy"
+                    name="favoriteToy"
+                    [(ngModel)]="cat!.favoriteToy"
+                    matInput>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button
+                *ngIf="!editing"
+                (click)="editCat()"
+                mat-stroked-button>
+                Edit Cat
+            </button>
+            <button
+                *ngIf="editing"
+                (click)="deleteCat()"
+                mat-stroked-button>
+                Delete Cat
+            </button>
+            <button
+                *ngIf="editing"
+                type="submit"
+                mat-stroked-button>
+                Save Changes
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>

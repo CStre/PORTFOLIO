@@ -1,0 +1,10 @@
+<nav>
+    <ul>
+        <li *ngFor="let link of links; index as i"
+            [class]="i > 0 ? 'rightLink' : 'leftLink'">
+            <a
+                [routerLink]="link.path"
+                mat-button>{{link.name}}</a>
+        </li>
+    </ul>
+</nav>
