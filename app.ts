@@ -4,9 +4,13 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import apiRouter from './app_api/routes/api';
+import catRouter from './app_api/routes/cat.routes';
+import userRouter from './app_api/routes/user.routes';
+import passport from 'passport';
+require('dotenv').config({ path: __dirname + '/.env' });
+require('./app_api/models/_db');
+require('./app_api/config/passport');
 
-require('./app_api/models/db');
 
 const app = express();
 
@@ -32,18 +36,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'app_public', 'dist', 'app_public', 'browser')));
+app.use(passport.initialize());
 
-app.get('/', (req: Request, res: Response, next: NextFunction) => {
-  res.sendFile(path.join(__dirname, 'app_public', 'dist', 'app_public', 'browser', 'index.html'));
+app.use('/api/cat', catRouter);
+app.use('/api/user', userRouter);
+
+app.get('*', (req: Request, res: Response, next: NextFunction) => {
+  if (req.path.indexOf('localhost:3000/api') !== -1) {
+    res.sendFile(path.join(__dirname, 'app_public', 'dist', 'app_public', 'browser', 'index.html'));
+  }
+  else {
+    next();
+  }
 });
-app.use('/api', apiRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req: Request, res: Response, next: NextFunction) {
   next(createError(404));
 });
-
-
 
 // error handler
 app.use(function(err: HttpError, req: Request, res: Response, next: NextFunction) {

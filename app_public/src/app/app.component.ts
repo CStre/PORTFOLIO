@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import CatService from './services/cat.service';
-import Cat from './models/cat.model';
-import { NgForm } from '@angular/forms';
+import AuthenticationService from './services/auth.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+    constructor(private authService: AuthenticationService) {}
+  
+    ngOnInit() {
+        this.authService.autoLogIn();
+    }
+}
