@@ -13,6 +13,8 @@ import { HomeComponent } from "./home/home.component";
 import { CatComponent } from "./cat/cat.component";
 import { HeaderComponent } from "./header/header.component";
 import { AddCatComponent } from "./add-cat/add-cat.component";
+import { RegisterComponent } from "./register/register.component";
+import { LoginComponent } from "./login/login.component";
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import { AddCatComponent } from "./add-cat/add-cat.component";
         HomeComponent,
         CatComponent,
         HeaderComponent,
-        AddCatComponent
+        AddCatComponent,
+        RegisterComponent,
+        LoginComponent,
     ],
     imports: [
         BrowserModule,

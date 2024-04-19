@@ -1,10 +1,19 @@
 <nav>
     <ul>
-        <li *ngFor="let link of links; index as i"
-            [class]="i > 0 ? 'rightLink' : 'leftLink'">
-            <a
-                [routerLink]="link.path"
-                mat-button>{{link.name}}</a>
+        <ng-container *ngIf="isLoggedIn">
+            <li *ngFor="let link of links.loggedIn; index as i" [class]="i > 0 ? 'rightLink' : 'leftLink'">
+                <a [routerLink]="link.path"
+                    mat-button>{{link.name}}</a>
+            </li>
+        </ng-container>
+        <ng-container *ngIf="!isLoggedIn">
+            <li *ngFor="let link of links.loggedOut; index as i" [class]="i > 0 ? 'rightLink' : 'leftLink'">
+                <a [routerLink]="link.path"
+                    mat-button>{{link.name}}</a>
+            </li>
+        </ng-container>
+        <li class="rightLink" *ngIf="isLoggedIn">
+            <a (click)="logout()" mat-button>Log Out</a>
         </li>
     </ul>
 </nav>

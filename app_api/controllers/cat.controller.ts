@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import Cat from "../models/cat.model";
+import Cat, { ICat } from "../models/cat.model";
 
 export default class ApiCtrl {
 
@@ -26,7 +26,7 @@ export default class ApiCtrl {
      */
     getCat = (req: Request, res: Response, next: NextFunction) => {
         Cat.findById(req.params["id"])
-            .then((cat) => {
+            .then((cat: ICat | null) => {
                 if (!cat) {
                     res.status(400).json({
                         cat: undefined,
@@ -41,6 +41,7 @@ export default class ApiCtrl {
             })
             .catch((error) => {
                 res.status(400).json({
+                    cat : undefined,
                     message : "error retrieving cat: " + error
                 })
             })
@@ -69,7 +70,6 @@ export default class ApiCtrl {
                     message : "Failed to create cat due to error: " + error
                 })
             })
-        
     }
 
     /**

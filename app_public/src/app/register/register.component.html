@@ -1,0 +1,17 @@
+<main>
+    <form (ngSubmit)="register(registerForm)" #registerForm="ngForm">
+        <mat-form-field>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" ngModel matInput/>
+        </mat-form-field>
+        <mat-form-field>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" ngModel matInput/>
+        </mat-form-field>
+        <mat-form-field>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" ngModel matInput/>
+        </mat-form-field>
+        <button type="submit" mat-stroked-button>Submit</button>
+    </form>
+</main>

@@ -46,8 +46,8 @@ export default class CatService {
     }
 
     getCat(id: string) {
-        this.http.get<{cat: ICat, message : string}>(this.API_URL + "cat/" + id)
-            .subscribe((res: {cat: ICat | undefined, message : string}) => {
+        this.http.get<{cat?: ICat, message : string}>(this.API_URL + "cat/" + id)
+            .subscribe((res: {cat?: ICat, message : string}) => {
                 if (res.cat) {
                     this.currentCat = {
                         id : res.cat._id,

@@ -1,7 +1,7 @@
 nav {
     padding-top: 1%;
     padding-bottom: 1%;
-    background-color: aqua;
+    background-color: seagreen
 }
 
 ul {
@@ -15,7 +15,7 @@ ul {
 }
 
 li.rightLink {
-    border-left-color: blueviolet;
+    border-left-color: whitesmoke;
     border-left-width: 2px;
     border-left-style: solid;
     padding-left: 1%;
