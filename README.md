@@ -78,7 +78,9 @@
   - Plan to implement an administration field and utilize two tables for tracking.
 </details>
 
+<details>
 <summary>5/5/2024</summary>
+
 - BIG UPDATE!!
 - The entire repository has been restarted, based on class examples, after encountering critical errors with the implementation of user authentication.
 - User authentication and passport are now fully implemented with my user login.
