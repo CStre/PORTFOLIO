@@ -1,18 +1,66 @@
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2%;
+.register-component {
+  position: fixed; /* Fixes the component relative to the viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex; /* Establishes a flex container */
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
+  flex-direction: column; /* Stacks children vertically */
+  background: none;
+  overflow: hidden;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+.register-component .frosted-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../assets/images/gradient-1.png'); /* Path to your image */
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
 
-mat-form-field {
-    margin: 1%;
+.register-component .container {
+  display: flex;
+  align-items: center; /* Centers vertically */
+  justify-content: center; /* Centers horizontally */
+  height: 100vh; /* Takes full viewport height */
+  width: 100vw; /* Takes full viewport width */
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
+
+.register-component .form-container {
+  background-color: #ffffff; /* White background */
+  padding: 20px; /* Padding around the content */
+  border-radius: 10px; /* Rounded corners for aesthetics */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 90%; /* Width relative to the viewport */
+  max-width: 500px; /* Maximum width to maintain aesthetics */
+  box-sizing: border-box;
+}
+
+.register-component .toggleBtn {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%); /* Centers the button horizontally */
+  z-index: 10; /* Ensures the button is above other elements */
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,59 +1,74 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import AuthService from '../services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import  AuthService  from '../services/auth.service'; // Check import path
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'] // Ensure styleUrl is changed to styleUrls for array of styles
+  styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
-  showLogin = false; // Controls which form is shown based on boolean state
+export class RegisterComponent implements OnInit {
+  registerForm: FormGroup;
+  loginForm: FormGroup;
+  showLogin = false; // Controls which form is shown
 
   constructor(
-    private authService: AuthService, // Dependency injection for AuthService
-    private router: Router // Dependency injection for Router to handle navigation
-  ) {}
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.registerForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
-    // Subscribe to the user changes to automatically navigate away if logged in
-    this.authService.getUserListener().subscribe(
-      (user) => {
-        if (user !== null) {
-          this.router.navigate(['/']); // Redirect to home if already logged in
+    // Subscribe to user changes
+    this.authService.getUserListener().subscribe({
+      next: (user) => {
+        if (user) {
+          console.log("User is already logged in, navigating to home.");
+          this.router.navigate(['/']);
         }
-      });
+      },
+      error: (error) => console.error('Error in user subscription', error)
+    });
   }
 
   toggleForm() {
-    // Toggle the boolean to show either login or register form
     this.showLogin = !this.showLogin;
+    console.log("Toggle form view:", this.showLogin ? "Login" : "Register");
   }
 
-  register(form: NgForm) {
-    // Call register method from AuthService passing user details and password
-    this.authService.register({
-      user: {
-        email: form.value.email,
-        name: form.value.name,
-        isAdmin: false // Static value for isAdmin as false
-      },
-      password: form.value.password
-    });
-    console.log("Registration Sent: Email:", form.value.email,
-    "Name:", form.value.name,
-    "Is Admin:", false,
-    "Password:", form.value.password); // Logging for debugging
+  register() {
+    if (this.registerForm.valid) {
+      console.log("Registration Sent: ", this.registerForm.value);
+      this.authService.register({
+        user: {
+          email: this.registerForm.value.email,
+          name: this.registerForm.value.name,
+          isAdmin: false // Assuming isAdmin is always false on registration
+        },
+        password: this.registerForm.value.password
+      });
+    }
   }
 
-  login(form: NgForm) {
-    // Call login method from AuthService passing email and password
-    this.authService.login({
-      email: form.value.email,
-      password: form.value.password
-    });
-    console.log("Login Attempt: Email:", form.value.email,
-    "Password:", form.value.password); // Logging for debugging
+  login() {
+    if (this.loginForm.valid) {
+      console.log("Login Attempt: ", this.loginForm.value);
+      this.authService.login({
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+      });
+    }
   }
+
 }

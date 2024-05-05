@@ -1,33 +1,26 @@
-<main>
-  <button mat-button (click)="toggleForm()">{{ showLogin ? 'Register' : 'Login' }}</button>
-  <div *ngIf="!showLogin">
-      <form (ngSubmit)="register(registerForm)" #registerForm="ngForm">
-          <mat-form-field>
-              <label for="name">Name</label>
-              <input type="text" name="name" id="name" ngModel matInput/>
-          </mat-form-field>
-          <mat-form-field>
-              <label for="email">Email</label>
-              <input type="text" name="email" id="email" ngModel matInput/>
-          </mat-form-field>
-          <mat-form-field>
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" ngModel matInput/>
-          </mat-form-field>
-          <button type="submit" mat-stroked-button>Submit</button>
-      </form>
+<div class="register-component">
+  <div class="frosted-blur">
+    <button class="toggleBtn" (click)="toggleForm()">{{ showLogin ? 'Register' : 'Login' }}</button>
+    <div class="container">
+      <div class="form-container">
+        <div *ngIf="!showLogin">
+          <h1>Request Administrator Access</h1>
+          <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <input type="text" formControlName="name" placeholder="Your Name" required>
+            <input type="text" formControlName="email" placeholder="Your Email" required>
+            <input type="password" formControlName="password" placeholder="Your Password" required>
+            <button type="submit" mat-stroked-button>Submit</button>
+          </form>
+        </div>
+        <div *ngIf="showLogin">
+          <h1>Administrator Login</h1>
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <input type="text" formControlName="email" placeholder="Your Email" required>
+            <input type="password" formControlName="password" placeholder="Your Password" required>
+            <button type="submit" mat-stroked-button>Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-  <div *ngIf="showLogin">
-      <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
-          <mat-form-field>
-              <label for="email">Email</label>
-              <input type="text" name="email" id="email" ngModel matInput/>
-          </mat-form-field>
-          <mat-form-field>
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" ngModel matInput/>
-          </mat-form-field>
-          <button type="submit" mat-stroked-button>Login</button>
-      </form>
-  </div>
-</main>
+</div>
