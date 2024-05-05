@@ -1,0 +1,21 @@
+<div *ngIf="user">
+  <h2>Account Details</h2>
+  <p>Name: {{ user.name }}</p>
+  <p>Email: {{ user.email }}</p>
+
+  <!-- Update Name Form -->
+  <form (ngSubmit)="updateName(name.value)" #nameForm="ngForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" [ngModel]="user.name" #name="ngModel" required>
+      <button type="submit">Update Name</button>
+  </form>
+
+  <!-- Update Email Form -->
+  <form (ngSubmit)="updateEmail(email.value)" #emailForm="ngForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [ngModel]="user.email" #email="ngModel" required>
+      <button type="submit">Update Email</button>
+  </form>
+
+  <button (click)="onDeleteAccount()">Delete Account</button>
+</div>

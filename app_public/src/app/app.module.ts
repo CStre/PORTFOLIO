@@ -12,7 +12,7 @@ import AppRoutingModule from "./app.routing.module";
 import { HomeComponent } from "./home/home.component";
 import { DashboardComponent, TimeZonePipe } from "./dashboard/dashboard.component";
 import { HeaderComponent } from "./header/header.component";
-import { AddCatComponent } from "./add-cat/add-cat.component";
+import { AccountComponent } from "./account/account.component";
 import { RegisterComponent } from "./register/register.component";
 import { ManageComponent } from "./manage/manage.component";
 
@@ -32,7 +32,7 @@ import { LayoutModule } from '@angular/cdk/layout';
         DashboardComponent,
         TimeZonePipe,
         HeaderComponent,
-        AddCatComponent,
+        AccountComponent,
         RegisterComponent,
         ManageComponent,
     ],

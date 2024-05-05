@@ -126,5 +126,24 @@ export default class AuthenticationController {
         res.status(500).json({ message: 'Failed to update user', error });
       });
   };
+
+  updateUser = (req: Request, res: Response, next: NextFunction) => {
+    console.log(`Updating user with ID: ${req.params.id}`);
+    const updateData = req.body; // This should include any field that can be updated
+    User.findByIdAndUpdate(req.params.id, updateData, { new: true })
+      .then(user => {
+        if (!user) {
+          console.error(`No user found with ID: ${req.params.id}`);
+          return res.status(404).json({ message: 'User not found' });
+        }
+        console.log(`User with ID: ${req.params.id} updated successfully`);
+        res.status(200).json(user);
+      })
+      .catch(error => {
+        console.error(`Error updating user with ID: ${req.params.id}:`, error);
+        res.status(500).json({ message: "Internal server error", error });
+      });
+};
+
   
 }

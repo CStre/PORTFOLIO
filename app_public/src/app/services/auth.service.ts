@@ -76,6 +76,15 @@ export default class AuthService {
     return this.user;
   }
 
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(`${this.API_URL}users/${user._id}`, user);
+  }
+
+
+deleteUser(userId: string): Observable<any> {
+    return this.http.delete(`${this.API_URL}users/${userId}`);
+}
+
   getUserListener(): Observable<User | null> {
     return this.userListener.asObservable();
   }
