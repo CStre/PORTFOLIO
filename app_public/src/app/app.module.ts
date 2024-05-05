@@ -13,7 +13,7 @@ import { HomeComponent } from "./home/home.component";
 import { DashboardComponent, TimeZonePipe } from "./dashboard/dashboard.component";
 import { HeaderComponent } from "./header/header.component";
 import { AccountComponent } from "./account/account.component";
-import { RegisterComponent } from "./register/register.component";
+import { RegisterComponent } from "./auth/register/register.component";
 import { ManageComponent } from "./manage/manage.component";
 
 

@@ -4,12 +4,12 @@
   z-index:1000;
   background-color: rgba(0, 0, 0, 0);
   font-family: 'Poppins';
-  height:200px;
+  height:100px;
   position: relative;
 }
 
 .header .sidenav-container {
-  height: calc(100% - 60px);
+  height: calc(100%);
   width: 100%;
   background-color: transparent;
 }

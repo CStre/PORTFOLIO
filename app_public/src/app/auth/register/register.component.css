@@ -1,4 +1,6 @@
-.account {
+
+
+.register-component {
   position: fixed; /* Fixes the component relative to the viewport */
   top: 0;
   left: 0;
@@ -12,39 +14,30 @@
   overflow: hidden;
 }
 
-.account .frosted-blur {
+.register-component .frosted-blur {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../../assets/images/gradient-2.png'); /* Path to your image */
+  background-image: url('../../../assets/images/gradient-1.png'); /* Path to your image */
   background-size: cover;
   background-position: center;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
 
-.account h1 {
+.register-component h1 {
   font-size: 2em;
   font-family: 'Poppins';
   font-weight: 700;
   justify-content: center;
   text-align: center;
-  color: #25274d;
+  color: #2e9cca;
+
 }
 
-.account h2 {
-  font-size: 1em;
-  font-family: 'Poppins';
-  font-weight: 500;
-  justify-content: left;
-  text-align: left;
-  color: #25274d;
-  margin-left: 4.5%;
-}
-
-.account .container {
+.register-component .container {
   display: flex;
   align-items: center; /* Centers vertically */
   justify-content: center; /* Centers horizontally */
@@ -58,8 +51,8 @@
   -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
 
-.account .form-container {
-  background-color: #54567e9e; /* White background */
+.register-component .form-container {
+  background-color: #25274d9e; /* White background */
   padding: 20px; /* Padding around the content */
   border-radius: 10px; /* Rounded corners for aesthetics */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -68,11 +61,11 @@
   box-sizing: border-box;
 }
 
-.account .toggle-button {
+.register-component .toggle-button {
   z-index: 10;
   padding: 5px 10px;
   position: absolute;
-  margin-top: 2.5%;
+  margin-top: 10%;
   left: 45%;
   right: 45%;
   background-color: #25274d;
@@ -89,39 +82,39 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.account .toggle-button:hover, .account .toggle-button:focus {
+.register-component .toggle-button:hover, .register-component .toggle-button:focus {
   background-color: #aaabb8;
   color: #464866;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.account .toggle-button:active {
+.register-component .toggle-button:active {
   background-color: #004080;
   transform: translateY(2px);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-.account .icon {
+.register-component .icon {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.account .icon .large-icon {
+.register-component .icon .large-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #25274d;
+  color: #2e9cca;
   font-size: 55px;
   padding: 20px;
   transition: font-size 0.1s ease-in-out;
 }
 
-.account .icon .large-icon:hover {
+.register-component .icon .large-icon:hover {
   font-size: 70px;
 }
 
-.account .submit-button {
+.register-component .submit-button {
   z-index: 10;
   padding: 5px 10px;
   background-color: #25274d;
@@ -141,19 +134,19 @@
   margin-left: 4.5%;
 }
 
-.account .submit-button:hover, .account .submit-button:focus {
+.register-component .submit-button:hover, .register-component .submit-button:focus {
   background-color: #aaabb8;
   color: #464866;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.account .submit-button:active {
+.register-component .submit-button:active {
   background-color: #004080;
   transform: translateY(2px);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-.account input {
+.register-component input {
   padding: 10px; /* Ensures inputs are easy to interact with */
   padding-bottom: 15px;
   width: 87%; /* Makes inputs extend full width of the form */
@@ -168,8 +161,19 @@
   height: 30px;
 }
 
-.account input::placeholder {
+.register-component input::placeholder {
   color: #ccc; /* Light grey color for placeholders, visible against the dark background */
   font-family: 'Poppins';
   font-weight: 500;
 }
+
+
+
+
+
+
+
+
+
+
+

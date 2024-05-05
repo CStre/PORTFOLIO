@@ -55,27 +55,15 @@ userSchema.methods.validPassword = function (password: string) {
 };
 
 userSchema.methods.generateJwt = function () {
-  console.log("Generating JWT...");
   const expiry = new Date();
-  expiry.setDate(expiry.getDate() + 7); // Sets expiration to one week
-
-  const nowInSeconds = Math.floor(Date.now() / 1000);
-  const expiryInSeconds = Math.floor(expiry.getTime() / 1000);
-
-  console.log(`Current time in seconds: ${nowInSeconds}`);
-  console.log(`Expiry time in seconds: ${expiryInSeconds}`);
-  console.log(`Token will expire in ${expiryInSeconds - nowInSeconds} seconds`);
-
-  const token = jwt.sign({
+  expiry.setDate(expiry.getDate() + 7);
+  return jwt.sign({
     _id: this._id,
     name: this.name,
     email: this.email,
     isAdmin: this.isAdmin,
-    exp: expiryInSeconds
+    exp: expiry.getTime()
   }, process.env.JWT_SECRET!);
-  
-  console.log(`JWT generated: ${token}`);
-  return token;
 };
 
 export default mongoose.model<IUser>('User', userSchema);

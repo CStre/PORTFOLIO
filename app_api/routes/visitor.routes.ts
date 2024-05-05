@@ -1,4 +1,5 @@
 import express from 'express';
+import { auth } from '../middleware/auth';
 import VisitCtrl from '../controllers/visitor.controller';
 
 const router = express.Router();
