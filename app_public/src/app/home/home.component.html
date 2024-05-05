@@ -1,16 +1,377 @@
-<main>
-    <ul>
-        <li *ngFor="let cat of cats">
-            <mat-card>
-                <mat-card-content [routerLink]="'cat/' + cat.id">
-                    <h4>{{cat.name}}</h4>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-stroked-button [routerLink]="'cat/' + cat.id">
-                        Select Cat!
-                    </button>
-                </mat-card-actions>
-            </mat-card>
-        </li>
-    </ul>
-</main>
+<div class="homepage">
+  <section id="home">
+    <div id="header" class="fullscreen-header">
+      <div class="message">
+        <h1>Hi, I'm Collin.</h1>
+        <p>Welcome to my Portfolio!</p>
+      </div>
+    </div>
+  </section>
+  <section id="about">
+    <div class="section-header-center">
+      <h2>My Journey</h2>
+    </div>
+    <div class="my-place">
+      <div class="image-container">
+        <img [src]="images[currentImageIndex].src" alt="Dynamic Image" (mousemove)="onMouseMove($event, image)"
+          (mouseleave)="resetTransform(image)" #image>
+        <br>
+        <button (click)="nextImage()">Next Photo</button>
+      </div>
+      <div class="text-section">
+        <div class="section-header">
+          <div class="sub-heading">
+            <p>My photo highlights include:</p>
+          </div>
+        </div>
+        <div class="image-descriptions">
+          <p>{{ images[currentImageIndex].message }}</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs justify-content-center">
+          <li class="nav-item" *ngFor="let tab of tabs">
+            <a class="nav-link" [class.active]="selectedTab === tab" (click)="selectTab(tab)">{{ tab }}</a>
+          </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="education" *ngIf="selectedTab === 'Education'">
+          <div class="section-container">
+            <div class="left-column">
+              <h1>Bachelors of Science in Computer Science</h1>
+              <h3>Appalachian State University, United States</h3>
+              <p>Graduated May 2024</p>
+              <br>
+              <h2>Minor in Computer information Systems</h2>
+              <p>Appalachian State University, United States</p>
+              <br>
+              <h2>AI Course Certificate</h2>
+              <p>University of Oxford, United Kingdom</p>
+              <br><br>
+            </div>
+            <div class="right-column">
+              <h1>Favorite Courses</h1>
+              <ol>
+                <li>Capstone Project</li>
+                <li>FullStack Website Development</li>
+                <li>SinglePage Website Development</li>
+                <li>Artificial Intelligence</li>
+                <li>Theoretical Computer Science</li>
+                <li>Statistical and Graphical Analysis</li>
+                <li>Software Engineering</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <!-- Tab Content -->
+        <div class="tech-stack" *ngIf="selectedTab === 'Tech Stack'">
+          <div class="section-container">
+            <div class="section">
+              <h1>Languages</h1>
+              <div class="small-section">
+                <div class="small-section-left">
+                  <p>Java</p>
+                  <p>Python</p>
+                  <p>C/C++</p>
+                  <p>Haskell</p>
+                  <p>TypeScript</p>
+                  <p>JavaScript</p>
+                </div>
+                <div class="small-section-right">
+                  <p>HTML</p>
+                  <p>CSS</p>
+                  <p>SQL</p>
+                  <p>PHP</p>
+                  <p>SASS</p>
+                  <p>R</p>
+                </div>
+              </div>
+            </div>
+            <div class="section">
+              <h1>Cloud Services</h1>
+              <p>Amazon Web Services (AWS)</p>
+              <p>AWS EC2</p>
+              <p>AWS Elastic Beanstalk</p>
+              <p>AWS Relational Database</p>
+              <p>AWS Route 53</p>
+              <p>AWS Lambda</p>
+              <p>Google Cloud</p>
+              <p>Google API</p>
+            </div>
+            <div class="section">
+              <h1>Full-Stack Tools</h1>
+              <div class="small-section">
+                <div class="small-section-left">
+                  <p>Angular</p>
+                  <p>React</p>
+                  <p>Node.js</p>
+                  <p>Express</p>
+                  <p>MongoDB</p>
+                  <p>MySQL</p>
+                  <p>Django</p>
+                </div>
+                <div class="small-section-right">
+                  <p>Bootstrap</p>
+                  <p>PostgreSQL</p>
+                  <p>VS Code</p>
+                  <p>Git</p>
+                  <p>Axios API</p>
+                  <p>R Studio</p>
+                </div>
+              </div>
+            </div>
+            <div class="section">
+              <h1>Collaboration Tools</h1>
+              <p>GitHub</p>
+              <p>Microsoft Suite</p>
+              <p>Google Suite</p>
+              <p>GitLab</p>
+              <p>JIRA</p>
+              <p>Slack</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tab Content -->
+        <div class="leadership" *ngIf="selectedTab === 'Leadership'">
+          <div class="full-column">
+            <h1>National Residence Hall Honorary</h1>
+            <div class="header-row">
+              <h2>Recognition Chair</h2>
+              <h2>2022 to 2024</h2>
+            </div>
+            <h1>Student Government Association</h1>
+            <div class="header-row">
+              <h2>Presidential Campaign Manager</h2>
+              <h2>March 2024</h2>
+            </div>
+            <h1>Community Engaged Leadership</h1>
+            <div class="header-row-no-margin">
+              <h2>Mastatal, Costa Rica</h2>
+              <h2>December 2023</h2>
+            </div>
+            <div class="header-row">
+              <h2>St. John, US Virgin Islands</h2>
+              <h2>January 2023</h2>
+            </div>
+            <br>
+            <h1>World Strides / Office of International Education</h1>
+            <div class="header-row">
+              <h2>Oxfordshire, United Kingdom</h2>
+              <h2>May 2023 to August 2023</h2>
+            </div>
+          </div>
+        </div>
+        <div class="professional" *ngIf="selectedTab === 'Professional'">
+          <div class="full-column">
+            <h1>ECR Software Corporation</h1>
+            <div class="header-row">
+              <h2>Part-Time Jasper Reports Developer</h2>
+              <h2>August 2023 to December 2023</h2>
+            </div>
+
+
+            <h1>University Department of Housing</h1>
+            <div class="header-row">
+              <h2>Resident Assistant (RA)</h2>
+              <h2>August 2021 to May 2024</h2>
+            </div>
+
+
+            <h1>University Department of Orientation</h1>
+            <div class="header-row">
+              <h2>Student Orientation Undergraduate Leader (SOUL)</h2>
+              <h2>January 2022 to August 2023</h2>
+            </div>
+
+
+            <h1>University Department of Career Development</h1>
+            <div class="header-row">
+              <h2>Career Guide</h2>
+              <h2>August 2022 to May 2024</h2>
+            </div>
+
+
+            <h1>University Department of the Dean of Students</h1>
+            <div class="header-row">
+              <h2>Office Assistant</h2>
+              <h2>July 2022 to August 2023</h2>
+            </div>
+
+
+            <h1>University Department of Admissions</h1>
+            <div class="header-row">
+              <h2>Campus Tour Guide</h2>
+              <h2>August 2022 to May 2023</h2>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <div class="projects-section">
+      <div class="section-header">
+        <h2 ref="projects">Projects</h2>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <h3>DRAN Stack Capstone</h3>
+          <p>
+            This website was my graduating final project for Computer Science and it is
+            fully deployed to a custom domain through AWS and uses Django for my server-side
+            framework, React for my client-side, AWS Relational Database, and Node.js for
+            my server. The programming languages include JavaScript, HTML, CSS, and Python.
+            This also includes Google Places API and an Python embedded recommendation algorithm
+          </p>
+          <div class="icons">
+            <img src="assets/images/html_logo.svg" alt="HTML Icon">
+            <img src="assets/images/css_logo.svg" alt="CSS Icon">
+            <img src="assets/images/javascript_logo.svg" alt="JavaScript Icon">
+            <img src="assets/images/python_logo.svg" alt="Python Icon">
+            <img src="assets/images/django_logo.svg" alt="HTML Icon">
+            <img src="assets/images/react_logo.svg" alt="React Icon">
+            <img src="assets/images/aws_logo.svg" alt="AWS Icon">
+            <img src="assets/images/rdb_logo.svg" alt="RDB Icon">
+            <img src="assets/images/elastic_logo.svg" alt="Elastic Beanstalk Icon">
+            <img src="assets/images/ec3_logo.svg" alt="EC3 Icon">
+            <img src="assets/images/maps_logo.svg" alt="Google Places API Icon">
+            <img src="assets/images/vs_logo.svg" alt="Visual Studio Icon">
+            <img src="assets/images/jira_logo.svg" alt="Jira Icon">
+            <img src="assets/images/node_logo.svg" alt="NodeJS Icon">
+            <img src="assets/images/github_logo.svg" alt="GitHub Icon">
+          </div>
+          <a href="https://github.com/CStre/CAPSTONE" class="btn">View on GitHub</a>
+        </div>
+        <div class="grid-item">
+          <h3>MEAN Stack Portfolio</h3>
+          <p>
+            This project is this current webpage that was developed as a final
+            project for my Full-Stack developement class. This project uses MongoDB,
+            Express for the server-side framework, Angular for the client-side, and
+            Node.js for the server. The code consists of TypeScript, HTML, and CSS
+            and was deployed through a custom domain using Google Cloud Services
+          </p>
+          <div class="icons">
+            <img src="assets/images/html_logo.svg" alt="HTML Icon">
+            <img src="assets/images/css_logo.svg" alt="CSS Icon">
+            <img src="assets/images/typescript_logo.svg" alt="TypeScript Icon">
+            <img src="assets/images/express_logo.svg" alt="Express Icon">
+            <img src="assets/images/angular_logo.svg" alt="Angular Icon">
+            <img src="assets/images/mongo_logo.svg" alt="MongoDB Icon">
+            <img src="assets/images/node_logo.svg" alt="Google Services Icon">
+            <img src="assets/images/vs_logo.svg" alt="Visual Studio Icon">
+            <img src="assets/images/github_logo.svg" alt="GitHub Icon">
+            <img src="assets/images/gitlab_logo.svg" alt="GitLab Icon">
+            <img src="assets/images/jira_logo.svg" alt="Jira Icon">
+            <img src="assets/images/googlecloud_logo.svg" alt="Google Cloud Icon">
+            <img src="assets/images/googleservice_logo.svg" alt="Elastic Beanstalk Icon">
+          </div>
+          <a href="https://github.com/CStre/PORTFOLIO" class="btn">View on GitHub</a>
+        </div>
+        <div class="grid-item">
+          <h3>Advanced Calculator</h3>
+          <p>
+            This project is a fully functioning advanced calculator written
+            completely in Haskell for my final project in Programming Languages.
+            This GUI was modeled after the iPhone calulator and runs on Windows
+            using Cabal and Monomer to be compiled in C. This program includes
+            logarithmic and trigonimic functions as well as input storage by
+            emulating memory with text files
+          </p>
+          <div class="icons">
+            <img src="assets/images/haskell_logo.svg" alt="Haskell Icon">
+            <img src="assets/images/powershell_logo.svg" alt="PowerShell Icon">
+            <img src="assets/images/linux_logo.svg" alt="Linux Icon">
+            <img src="assets/images/vs_logo.svg" alt="Visual Studio Icon">
+            <img src="assets/images/github_logo.svg" alt="GitHub Icon">
+          </div>
+          <a href="https://github.com/CStre/Calculator" class="btn">View on GitHub</a>
+        </div>
+        <div class="grid-item">
+          <h3>Y86 Emulator</h3>
+          <p>
+            This semester-long project involved the creation of an emulator for the six
+            stages of a Y86 processor, meticulously crafted using C and C++. The primary
+            goal was to interpret Assembly Code and accurately convert it into Machine
+            Language. To achieve this, we implemented a variety of sophisticated
+            programming techniques: beyond binary bit shifting and the extensive use of
+            pointers, we also incorporated memory management, dynamic data structures,
+            and error handling mechanisms
+          </p>
+          <div class="icons">
+            <img src="assets/images/c_logo.svg" alt="C Icon">
+            <img src="assets/images/cplus_logo.svg" alt="C++ Icon">
+            <img src="assets/images/asm_logo.svg" alt="Assembly Icon">
+            <img src="assets/images/vs_logo.svg" alt="Visual Studio Icon">
+            <img src="assets/images/github_logo.svg" alt="GitHub Icon">
+            <img src="assets/images/slack_logo.svg" alt="Slack Icon">
+          </div>
+          <a href="https://github.com/CStre/Y86-Systems-Project" class="btn">View on GitHub</a>
+        </div>
+        <div class="grid-item">
+          <h3>Pharmaceutical Interface</h3>
+          <p>
+            In a semester-long Software Engineering course, I worked with a five-member
+            team to develop a Java-based user interface. We employed Agile and SCRUM
+            methodologies, utilizing sprints, meetings, UML diagrams, and development
+            patterns to guide our process. Our rigorous approach also included custom
+            testing and a bespoke Checkstyle configuration to ensure high coding standards.
+            This project not only sharpened our technical skills but also refined our project
+            management and team collaboration capabilities
+          </p>
+          <div class="icons">
+            <img src="assets/images/java_logo.svg" alt="Java Icon">
+            <img src="assets/images/vs_logo.svg" alt="Visual Studio Icon">
+            <img src="assets/images/github_logo.svg" alt="GitHub Icon">
+            <img src="assets/images/slack_logo.svg" alt="Slack Icon">
+          </div>
+          <a href="https://github.com/CStre/Peer-Programming-Project" class="btn">View on GitHub</a>
+        </div>
+        <div class="grid-item">
+          <h3>Graphical Analysis</h3>
+          <p>
+            This repository serves as a comprehensive archive of all my R Markdown projects,
+            primarily focused on graphical and statistical analysis. Utilizing R Studio, I
+            have skillfully created a variety of detailed tables, informative graphs, and
+            in-depth statistical reports. These projects leverage extensive datasets to
+            uncover meaningful insights across various domains
+          </p>
+          <div class="icons">
+            <img src="assets/images/r_logo.svg" alt="R Icon">
+            <img src="assets/images/rstudio_logo.svg" alt="R Studio Icon">
+            <img src="assets/images/vs_logo.svg" alt="Visual Studio Icon">
+          </div>
+          <a href="https://github.com/CStre/R_Studio" class="btn">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="contact-section">
+      <div class="contact-info">
+        <h2 ref="contact">Contact Me</h2>
+        <h3><a href="emailto:collinm.streitman@gemail.com"><img src="assets/images/Email.svg" alt="email Icon"
+              class="icon"></a> collinm.streitman&#64;gemail.com</h3>
+        <h3><a href="tel:+17047740581"><img src="assets/images/Phone.svg" alt="Phone Icon" class="icon"></a>
+          +1(704)774-0581</h3>
+        <h3><a href="https://linkedin.com/in/collinstreitman"><img src="assets/images/LinkedIn.svg" alt="LinkedIn Icon"
+              class="icon"></a> <a> linkedin.com/in/collinstreitman</a></h3>
+        <h3><a href="https://github.com/CStre"><img src="assets/images/GitHub.svg" alt="GitHub Icon" class="icon"></a>
+          <a> github.com/CStre</a></h3>
+      </div>
+      <div class="resume-download">
+        <h2>Download My CV</h2>
+        <form [formGroup]="downloadForm" (ngSubmit)="onSubmit()">
+          <input type="text" formControlName="name" placeholder="Your Name" required>
+          <input type="text" formControlName="company" placeholder="Your Company" required>
+          <input type="email" formControlName="email" placeholder="Your email" required>
+          <button type="submit" [disabled]="downloadForm.invalid">Download</button>
+          <p *ngIf="downloadForm.invalid && downloadForm.touched" class="form-error">Please fill out all fields and
+            enter a valid email.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

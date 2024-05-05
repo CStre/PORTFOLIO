@@ -1,4 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #d8d0d6;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.message {
+    max-width: 800px;
+    margin: auto;
+    margin-top: 2%;
+    text-align: center;
+}
+
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-width: none;
+  }
+}

@@ -3,52 +3,79 @@ import crypto from 'crypto';
 import jwt, { Jwt } from 'jsonwebtoken';
 
 export interface IUser extends Document {
+    name: string,  
     email: string,
-    name: string,
+    isAdmin: boolean,
     hash: string,
     salt: string,
-    setPassword: (pasword: string) => void,
-    validPassword: (pasword: string) => boolean,
+    setPassword: (password: string) => void,
+    validPassword: (password: string) => boolean,
     generateJwt: () => Jwt,
 }
 
 const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    unique: true,
-    required: true
-  },
   name: {
     type: String,
     required: true
   },
+  email: {
+    type: String,
+    required: true,
+    unique: false
+  },
+  isAdmin: {
+    type: Boolean,
+    required: true
+  },
   hash: String,
   salt: String
-});
+},
+{
+    timestamps: true,
+}
+)
 
 userSchema.methods.setPassword = function (password: string) {
+  console.log("Setting password...");
   this.salt = crypto.randomBytes(16).toString('hex');
   this.hash = crypto
     .pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
     .toString('hex');
+  console.log(`Password set with hash: ${this.hash} and salt: ${this.salt}`);
 };
 
 userSchema.methods.validPassword = function (password: string) {
+  console.log("Validating password...");
   const hash = crypto
     .pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
     .toString('hex');
-  return this.hash === hash;
+  const isValid = this.hash === hash;
+  console.log(`Password validation result: ${isValid}`);
+  return isValid;
 };
 
 userSchema.methods.generateJwt = function () {
+  console.log("Generating JWT...");
   const expiry = new Date();
-  expiry.setDate(expiry.getDate() + 7);
-  return jwt.sign({
+  expiry.setDate(expiry.getDate() + 7); // Sets expiration to one week
+
+  const nowInSeconds = Math.floor(Date.now() / 1000);
+  const expiryInSeconds = Math.floor(expiry.getTime() / 1000);
+
+  console.log(`Current time in seconds: ${nowInSeconds}`);
+  console.log(`Expiry time in seconds: ${expiryInSeconds}`);
+  console.log(`Token will expire in ${expiryInSeconds - nowInSeconds} seconds`);
+
+  const token = jwt.sign({
     _id: this._id,
-    email: this.email,
     name: this.name,
-    exp: expiry.getTime() / 1000
+    email: this.email,
+    isAdmin: this.isAdmin,
+    exp: expiryInSeconds
   }, process.env.JWT_SECRET!);
+  
+  console.log(`JWT generated: ${token}`);
+  return token;
 };
 
 export default mongoose.model<IUser>('User', userSchema);

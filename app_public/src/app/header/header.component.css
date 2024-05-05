@@ -1,26 +1,165 @@
-nav {
-    padding-top: 1%;
-    padding-bottom: 1%;
-    background-color: seagreen
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.header {
+  z-index:1000;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: 'Poppins';
+  height:200px;
+  position: relative;
 }
 
-ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    margin: 0px;
+.header .sidenav-container {
+  height: calc(100% - 60px);
+  width: 100%;
+  background-color: transparent;
 }
 
-li.rightLink {
-    border-left-color: whitesmoke;
-    border-left-width: 2px;
-    border-left-style: solid;
-    padding-left: 1%;
+.header .transparent-toolbar {
+  background-color: transparent;
+  color: #25274d;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: none;
+  padding: 0 15px;
+  position: relative;
 }
 
-li.leftLink {
-    padding-right: 1%;
+.header .toolbar-name {
+  font-family: 'Poppins';
+  font-size: 2.5em;
+  font-weight: 800;
+  padding-left: 120px;
+  padding-top: 20px;
+  color: #25274d;
+  text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
+  transition: transform 0.3s ease;
+  position: absolute;
+}
+
+.header .toolbar-name:hover {
+  transform: scale(1.05);
+}
+
+
+.header .menu-button {
+  position: fixed;
+  top: 20px; /* Position from the top of the viewport */
+  right: 20px;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #25274d;
+  border: none;
+  background: none;
+  padding: 5px;
+  outline: none;
+  text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
+}
+
+.header .menu-button .light-icon {
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2e9cca;
+  border: none;
+  background: none;
+  padding: 5px;
+  outline: none;
+  text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
+  position: fixed; /* Position fixed to stay visible on scroll */
+  top: 20px; /* Position from the top of the viewport */
+  right: 20px; /* Position from the right of the viewport */
+  z-index: 1050;
+}
+
+.light-icons, .light-text {
+  color: #ccc; /* Example lighter color, adjust as needed */
+}
+
+.header .menu-button mat-icon {
+  font-size: 1.5em;
+  width: auto;
+  height: auto;
+  z-index: 1000;
+}
+
+
+.header .sidenav {
+  background-color: transparent;
+  z-index: 1000;
+  position: fixed; /* Ensures sidebar also stays in position */
+  min-width: 140px;
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  height: 50%;
+}
+
+.header .headerList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 50%;
+  text-align: left;
+  width: 100%;
+  z-index: 900;
+}
+
+.header .headerListItem {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.header .headerLink {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  width: 100%;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #25274d;
+  text-decoration: none;
+  border-radius: 5px;
+  text-shadow: 2px 2px 4px rgba(66,66,66,0.1);
+  font-family: 'Poppins';
+}
+
+.header .large-icon {
+  margin-right: 13px;
+  color: #25274d;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px #4242421a;
+  overflow: visible;
+}
+
+.header .large-icon-light {
+  margin-right: 13px;
+  color: #2e9cca;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px #4242421a;
+  overflow: visible;
+}
+
+.header .headerLink.active, .headerLink:hover {
+  background-color: rgba(70, 72, 102, 0.1);
+}
+
+.header .menu-button {
+  transition: transform 0.3s ease;
+}
+
+.header .menu-button.rotate-icon {
+  transform: rotate(90deg);
+}
+
+.header .rotate-icon {
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.mat-sidenav-container .mat-sidenav-backdrop.mat-sidenav-shown {
+  background-color: rgba(0, 0, 0, 0) !important;
 }

@@ -1,19 +1,22 @@
-<nav>
-    <ul>
-        <ng-container *ngIf="isLoggedIn">
-            <li *ngFor="let link of links.loggedIn; index as i" [class]="i > 0 ? 'rightLink' : 'leftLink'">
-                <a [routerLink]="link.path"
-                    mat-button>{{link.name}}</a>
-            </li>
-        </ng-container>
-        <ng-container *ngIf="!isLoggedIn">
-            <li *ngFor="let link of links.loggedOut; index as i" [class]="i > 0 ? 'rightLink' : 'leftLink'">
-                <a [routerLink]="link.path"
-                    mat-button>{{link.name}}</a>
-            </li>
-        </ng-container>
-        <li class="rightLink" *ngIf="isLoggedIn">
-            <a (click)="logout()" mat-button>Log Out</a>
-        </li>
-    </ul>
-</nav>
+
+
+<div class="header">
+  <mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
+    <mat-toolbar class="transparent-toolbar">
+      <span class="toolbar-name">Collin Streitman</span>
+      <button mat-icon-button (click)="toggleMenu()" class="menu-button">
+        <mat-icon [class.light-icon]="!isHome">{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
+      </button>
+      <mat-sidenav #sidenav mode="over" position="end" class="sidenav" [(opened)]="isMenuOpen">
+        <ul class="headerList">
+          <li *ngFor="let link of links" class="headerListItem">
+            <a href="javascript:void(0);" (click)="navigate(link.path)" class="headerLink" mat-button routerLinkActive="active" (click)="closeMenu()">
+              <mat-icon class="large-icon" [class.large-icon-light]="!isHome">{{link.icon}}</mat-icon>
+              <span [class.light-text]="!isHome">{{link.name}}</span>
+            </a>
+          </li>
+        </ul>
+      </mat-sidenav>
+    </mat-toolbar>
+  </mat-sidenav-container>
+</div>

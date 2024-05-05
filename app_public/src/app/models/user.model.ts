@@ -1,4 +1,8 @@
 export default interface User {
-    email: string,
-    name: string,
+  _id? : string;
+  name : string;
+  email : string;
+  isAdmin : boolean;
+  createdAt?: Date;
 }
+

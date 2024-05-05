@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import CatService from "../services/cat.service";
+import VisitorService from "../services/visitor.service";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 
@@ -11,15 +11,15 @@ import { Router } from "@angular/router";
 export class AddCatComponent {
 
     constructor(
-        private catService: CatService,
+        private visitorService: VisitorService,
         private router: Router) {}
 
-    addCat(form : NgForm) {
-        this.catService.addCat({
+    addVisitor(form : NgForm) {
+        this.visitorService.addVisit({
             id : "",
             name: form.value["name"],
-            age: form.value["age"],
-            favoriteToy: form.value["favoriteToy"]
+            company: form.value["company"],
+            email: form.value["email"]
         });
         this.router.navigate(['/']);
       }
