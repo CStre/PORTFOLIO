@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
-import AuthenticationService from "../services/auth.service";
+import AuthenticationService from "../auth/auth.service";
 import User from "../models/user.model";
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
@@ -16,7 +16,6 @@ interface Link {
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
     @ViewChild('sidenav') sidenav!: MatSidenav;
     isMenuOpen = false;
     isHome = true;
@@ -31,23 +30,29 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-      console.log('Component OnInit started');
-      this.authService.getUserListener().subscribe((user: User | null) => {
-          console.log('User status updated:', user);
-          this.updateAdminStatusAndLinks();  // Update based on local storage
-      });
+        console.log('Component OnInit started');
+        this.authService.getUserListener().subscribe((user: User | null) => {
+            console.log('User status updated:', user);
+            this.updateAdminStatusAndLinks();  // Update based on local storage
+        });
 
-      // Initial check for admin status on component load
-      this.updateAdminStatusAndLinks();
+        // Initial check for admin status on component load
+        this.updateAdminStatusAndLinks();
     }
 
     updateAdminStatusAndLinks(): void {
-        console.log('Updating admin status...');
-        // Check isAdmin from local storage instead of user object
-        this.isAdmin = JSON.parse(localStorage.getItem("admin") || "false");
-        console.log('isAdmin:', this.isAdmin);
-        this.updateLinks();
-    }
+      console.log('Updating admin status...');
+      try {
+          const adminFlag = localStorage.getItem("admin");
+          this.isAdmin = adminFlag !== null ? JSON.parse(adminFlag) : false;
+          console.log('isAdmin:', this.isAdmin);
+      } catch (error) {
+          console.error('Error parsing admin flag:', error);
+          this.isAdmin = false;  // Assume non-admin if error occurs
+      }
+      this.updateLinks();
+  }
+
 
     @HostListener('window:scroll', ['$event'])
     checkIfHomeSection() {
@@ -73,26 +78,25 @@ export class HeaderComponent implements OnInit {
     }
 
     updateLinks() {
-        console.log('Updating links based on admin status...');
-        if (this.isAdmin) {
-            this.links = [
-                { name: 'Home', path: '/', icon: 'home' },
-                { name: 'Dashboard', path: '/dashboard', icon: 'list_alt' },
-                { name: "Access", path: "/administration", icon : "dashboard" },
-                { name: 'Account', path: '/account', icon: 'person' },
-                { name: 'Logout', path: '/logout', icon: 'exit_to_app' }
-            ];
-        } else {
-            this.links = [
-                { name: 'Home', path: '/', icon: 'home' },
-                { name: 'About', path: '#about', icon: 'info_outline' },
-                { name: 'Projects', path: '#projects', icon: 'assignment' },
-                { name: 'Contact', path: '#contact', icon: 'mail_outline' },
-                { name: 'Admin', path: '/register', icon: 'admin_panel_settings' }
-            ];
-        }
-        console.log('Links updated:', this.links);
-    }
+      console.log('Updating links based on admin status...');
+      this.links = this.isAdmin ? [
+          { name: 'Home', path: '/', icon: 'home' },
+          { name: 'Dashboard', path: '/dashboard', icon: 'list_alt' },
+          { name: "Access", path: "/administration", icon: 'dashboard' },
+          { name: 'Account', path: '/account', icon: 'person' },
+          { name: 'Logout', path: '/logout', icon: 'exit_to_app' }
+      ] : [
+          { name: 'Home', path: '/', icon: 'home' },
+          { name: 'About', path: '#about', icon: 'info_outline' },
+          { name: 'Projects', path: '#projects', icon: 'assignment' },
+          { name: 'Contact', path: '#contact', icon: 'mail_outline' },
+          { name: 'Admin', path: '/register', icon: 'admin_panel_settings' }
+      ];
+      console.log('Links updated:', this.links);
+      console.log('isAdmin:', this.isAdmin);  // Ensure this flag is as expected
+      console.log('Current links:', this.links.map(link => link.name).join(', '));  // Log current links to verify
+  }
+
 
     navigate(path: string): void {
         console.log('Navigating to:', path);

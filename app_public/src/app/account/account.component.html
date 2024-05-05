@@ -1,21 +1,30 @@
-<div *ngIf="user">
-  <h2>Account Details</h2>
-  <p>Name: {{ user.name }}</p>
-  <p>Email: {{ user.email }}</p>
+<div class="account">
+  <div class="frosted-blur">
+    <div class="container">
+      <div class="form-container">
+        <div *ngIf="user">
+          <div class="icon">
+            <mat-icon class="large-icon">account_circle</mat-icon>
+          </div>
+          <h1>Account Details</h1>
+          <h2>Current Name: {{ user.name }}</h2>
 
-  <!-- Update Name Form -->
-  <form (ngSubmit)="updateName(name.value)" #nameForm="ngForm">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" [ngModel]="user.name" #name="ngModel" required>
-      <button type="submit">Update Name</button>
-  </form>
+          <!-- Update Name Form -->
+          <form (ngSubmit)="updateName(name.value)" #nameForm="ngForm">
+            <input type="text" id="name" name="name" [ngModel]="user.name" #name="ngModel" placeholder="Change Your Name" required>
+            <button class="submit-button" type="submit">Update Name</button>
+          </form>
 
-  <!-- Update Email Form -->
-  <form (ngSubmit)="updateEmail(email.value)" #emailForm="ngForm">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" [ngModel]="user.email" #email="ngModel" required>
-      <button type="submit">Update Email</button>
-  </form>
+          <h2>Current Email: {{ user.email }}</h2>
+          <!-- Update Email Form -->
+          <form (ngSubmit)="updateEmail(email.value)" #emailForm="ngForm">
+            <input type="email" id="email" name="email" [ngModel]="user.email" #email="ngModel" placeholder="Change Your Email" required>
+            <button class="submit-button" type="submit">Update Email</button>
+          </form>
 
-  <button (click)="onDeleteAccount()">Delete Account</button>
+          <button class="toggle-button" (click)="onDeleteAccount()">Delete Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

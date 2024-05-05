@@ -1,0 +1,76 @@
+
+
+.manage {
+  position: fixed; /* Fixes the component relative to the viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex; /* Establishes a flex container */
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
+  flex-direction: column; /* Stacks children vertically */
+  background: none;
+  overflow: hidden;
+}
+
+.manage .frosted-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../assets/images/gradient-4.png'); /* Path to your image */
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+.manage .container {
+  display: flex;
+  align-items: center; /* Centers vertically */
+  justify-content: center; /* Centers horizontally */
+  height: 110vh; /* Takes full viewport height */
+  width: 100vw; /* Takes full viewport width */
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+.manage .form-container {
+  background-color: #25274d9e; /* Semi-transparent dark background */
+  padding: 20px; /* Padding around the content */
+  padding-top: 100px; /* Additional padding at the top */
+  border-radius: 10px; /* Rounded corners for aesthetics */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 90%; /* Width relative to the viewport */
+  max-width: 1500px; /* Maximum width to maintain aesthetics */
+  max-height: 80vh; /* Maximum height relative to the viewport height */
+  box-sizing: border-box; /* Include padding and border in the box's size */
+  overflow-y: auto; /* Enables vertical scrolling if content overflows */
+
+}
+
+.manage h1 {
+  font-size: 3em;
+  font-family: 'Poppins';
+  font-weight: 700;
+  justify-content: center;
+  text-align: center;
+  color: #2e9cca;
+}
+
+
+.manage h2 {
+  font-size: 1.5em;
+  font-family: 'Poppins';
+  font-weight: 700;
+  justify-content: center;
+  text-align: center;
+  color: #2e9cca;
+}
+

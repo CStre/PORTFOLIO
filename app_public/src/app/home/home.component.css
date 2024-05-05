@@ -17,7 +17,7 @@
 /* Fullscreen header styles */
 .homepage .fullscreen-header {
   background: url('../../assets/images/header.svg') no-repeat center center/cover;
-  height: 102vh;
+  height: 120vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -587,16 +587,10 @@
   max-height: 40px;
   transition: transform 0.2s ease; /* Smooth transition for the transform property */
 }
-.icons img {
-  max-height: 40px;
-  transition: transform 0.2s ease; /* Smooth transition for the transform property */
-}
 
 .icons img:hover, .icons img:focus {
   transform: translateY(-10px); /* Moves the image up by 10px */
 }
-
-
 
 .contact-section .resume-download form {
   display: flex;

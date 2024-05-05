@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import VisitorService from '../services/visitor.service';
+import VisitorService from '../auth/visitor.service';
 import 'bootstrap';
 
 @Component({

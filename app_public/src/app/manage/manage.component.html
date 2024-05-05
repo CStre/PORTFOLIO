@@ -1,61 +1,72 @@
-<div class="mat-elevation-z8">
-  <button mat-icon-button aria-label="Delete selected" (click)="deleteSelected()" *ngIf="selection.selected.length > 0">
-    <mat-icon>delete</mat-icon>
-  </button>
-  <button mat-icon-button aria-label="Promote selected" (click)="makeAdmin()" *ngIf="selection.selected.length > 0">
-    <mat-icon>arrow_upward</mat-icon>
-  </button>
-  <button mat-icon-button aria-label="Revoke selected" (click)="revokeAdmin()" *ngIf="selection.selected.length > 0">
-    <mat-icon>arrow_downward</mat-icon>
-  </button>
-<table mat-table [dataSource]="users" matSort class="mat-elevation-z8">
-  <ng-container matColumnDef="select">
-    <th mat-header-cell *matHeaderCellDef>
-      <mat-checkbox (change)="masterToggle()"
-                    [checked]="isAllSelected()"
-                    [indeterminate]="selection.selected.length && !isAllSelected()">
-      </mat-checkbox>
-    </th>
-    <td mat-cell *matCellDef="let row">
-      <mat-checkbox (click)="$event.stopPropagation()"
-                    (change)="selection.toggle(row)"
-                    [checked]="selection.isSelected(row)">
-      </mat-checkbox>
-    </td>
-  </ng-container>
+<div class="manage">
+  <div class="frosted-blur">
+    <div class="container">
+      <div class="form-container">
+        <h1>Admin Management Dashboard</h1>
+        <h2>This is where you can find all users registered on the site and manage site permissions.</h2>
+        <div class="mat-elevation-z8">
+          <button mat-icon-button aria-label="Delete selected" (click)="deleteSelected()"
+            *ngIf="selection.selected.length > 0">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Promote selected" (click)="makeAdmin()"
+            *ngIf="selection.selected.length > 0">
+            <mat-icon>arrow_upward</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Revoke selected" (click)="revokeAdmin()"
+            *ngIf="selection.selected.length > 0">
+            <mat-icon>arrow_downward</mat-icon>
+          </button>
+          <table mat-table [dataSource]="users" matSort class="mat-elevation-z8">
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="masterToggle()" [checked]="isAllSelected()"
+                  [indeterminate]="selection.selected.length && !isAllSelected()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="selection.toggle(row)"
+                  [checked]="selection.isSelected(row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
 
-  <!-- ID Column -->
-  <ng-container matColumnDef="_id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="id"> ID </th>
-    <td mat-cell *matCellDef="let user"> {{user._id}} </td>
-  </ng-container>
+            <!-- ID Column -->
+            <ng-container matColumnDef="_id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header="id"> ID </th>
+              <td mat-cell *matCellDef="let user"> {{user._id}} </td>
+            </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="name"> Name </th>
-    <td mat-cell *matCellDef="let user"> {{user.name}} </td>
-  </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header="name"> Name </th>
+              <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+            </ng-container>
 
-  <!-- Email Column -->
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="email"> Email </th>
-    <td mat-cell *matCellDef="let user"> {{user.email}} </td>
-  </ng-container>
+            <!-- Email Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header="email"> Email </th>
+              <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+            </ng-container>
 
-  <!-- isAdmin Column -->
-  <ng-container matColumnDef="isAdmin">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="isAdmin"> Admin Status </th>
-    <td mat-cell *matCellDef="let user"> {{user.isAdmin ? 'Yes' : 'No'}} </td>
-  </ng-container>
+            <!-- isAdmin Column -->
+            <ng-container matColumnDef="isAdmin">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header="isAdmin"> Admin Status </th>
+              <td mat-cell *matCellDef="let user"> {{user.isAdmin ? 'Yes' : 'No'}} </td>
+            </ng-container>
 
-  <!-- Date Column -->
-  <ng-container matColumnDef="createdAt">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header="createdAt"> Created At </th>
-    <td mat-cell *matCellDef="let user"> {{user.createdAt | timeZone:'MM-DD-YYYY'}} </td>
-  </ng-container>
+            <!-- Date Column -->
+            <ng-container matColumnDef="createdAt">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header="createdAt"> Created At </th>
+              <td mat-cell *matCellDef="let user"> {{user.createdAt | timeZone:'MM-DD-YYYY'}} </td>
+            </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="['select', '_id', 'name', 'email', 'isAdmin', 'createdAt']"></tr>
-  <tr mat-row *matRowDef="let row; columns: ['select', '_id', 'name', 'email', 'isAdmin', 'createdAt'];"
-      (click)="selection.toggle(row)">
-    </table>
+            <tr mat-header-row *matHeaderRowDef="['select', '_id', 'name', 'email', 'isAdmin', 'createdAt']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['select', '_id', 'name', 'email', 'isAdmin', 'createdAt'];"
+              (click)="selection.toggle(row)">
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

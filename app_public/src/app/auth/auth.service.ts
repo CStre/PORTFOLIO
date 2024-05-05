@@ -81,9 +81,9 @@ export default class AuthService {
   }
 
 
-deleteUser(userId: string): Observable<any> {
-    return this.http.delete(`${this.API_URL}users/${userId}`);
-}
+  deleteUser(userId: string): Observable<any> {
+      return this.http.delete(`${this.API_URL}users/${userId}`);
+  }
 
   getUserListener(): Observable<User | null> {
     return this.userListener.asObservable();
@@ -109,6 +109,9 @@ deleteUser(userId: string): Observable<any> {
     return forkJoin(ids.map(id => this.http.patch(`${this.API_URL}users/${id}`, { isAdmin: false })));
   }
 
+  getToken() {
+    return localStorage.getItem(this.TOKEN_KEY) ?? "";
+}
 
   deleteUsers(ids: string[]): Observable<any> {
     return forkJoin(ids.map(id => this.http.delete(`${this.API_URL}users/${id}`)));
@@ -121,15 +124,21 @@ deleteUser(userId: string): Observable<any> {
   autoLogIn(): void {
     console.log("Attempting auto-login...");
     const token = localStorage.getItem(this.TOKEN_KEY);
+    console.log("Here is the token: " + token);
     if (token) {
       const tokenPayload = JSON.parse(atob(token.split('.')[1]));
       const expirationDate = new Date(tokenPayload.exp);
+      console.log("Payload: " + tokenPayload);
+      console.log("Expiry Date: " + expirationDate);
       if (new Date().getTime() > expirationDate.getTime()) {
-        console.log("Token is valid, no need to retrieve user.");
-        this.retrieveUser(tokenPayload.email);
-      } else {
         console.log("Token expired, retrieving user data for:", tokenPayload.email);
       }
+      else
+      {
+        console.log("Token is valid, no need to retrieve user.");
+        this.retrieveUser(tokenPayload.email);
+      }
+
     }
   }
 
