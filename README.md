@@ -85,7 +85,7 @@
 - The entire repository has been restarted, based on class examples, after encountering critical errors with the implementation of user authentication.
 - User authentication and passport are now fully implemented with my user login.
 - All pages have been implemented, with most page styling completed.
-= UPDATED Key features include:
+- UPDATED Key features include:
   - A portfolio landing page that supports user resume downloads.
   - An administration login page allowing privileged access for account management.
   - A user authentication system that enables resume downloading for registered users after form submission.
@@ -96,6 +96,24 @@
 - Stretch Goals:
   - Aim to deploy the site by presentation day.
   - Implement route guards by presentation day.
+</details>
+
+<details>
+<summary>5/6/2024</summary>
+
+- PROJECT SPLIT
+- Development has now moved to the deployment branch.
+- All front-end and backend development has reached the end.
+- Completed Key features include:
+  - A portfolio landing page that supports user resume downloads.
+  - An administration login page allowing privileged access for account management.
+  - A user authentication system that enables resume downloading for registered users after form submission.
+  - Admin management controlled on the Management page where all requests populate and can be managed.
+  - Resume downloads are managed through a form and can be tracked on the Dashboard page, with options for deletion.
+  - An Accounts page where the admin can change their account information or delete their account.
+  - Significant project-wide styling updates.
+- Current Work:
+  - Restructuring files to be served from JS and Implementing deployment files from Google.
 </details>
 
 ## Tools Utilization
