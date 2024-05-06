@@ -8,8 +8,7 @@ import { Injectable } from "@angular/core";
 })
 export default class VisitorService {
 
-    API_URL = "http://localhost:3000/api/";
-
+    API_URL = "https://infra-data-422500-h0.ew.r.appspot.com/api/";
     private visits : Visitor[] = [];
     private visitListener: Subject<Visitor[]> = new Subject();
 

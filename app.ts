@@ -5,17 +5,17 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
 
-import visitorRouter from './app_api/routes/visitor.routes';
-import userRouter from './app_api/routes/user.routes';
+import visitorRouter from './app_api/src/routes/visitor.routes';
+import userRouter from './app_api/src/routes/user.routes';
 import passport from 'passport';
 require('dotenv').config({ path: __dirname + '/.env' });
-require('./app_api/models/_db');
-require('./app_api/config/passport');
+require('./app_api/src/models/_db');
+require('./app_api/src/config/passport');
 
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:4200',
+  origin: process.env.CORS_ORIGIN,
   methods: 'GET, POST, PUT, DELETE, PATCH, OPTIONS', // Explicitly allow methods
   allowedHeaders: 'Content-Type, Authorization', // Explicitly allow headers
   credentials: true, // If you're using credentials

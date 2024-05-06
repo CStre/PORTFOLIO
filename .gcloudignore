@@ -1,0 +1,15 @@
+.git
+.gitignore
+*.log
+*.md
+*.psd
+*.svn
+*.yaml
+#*#
+*~
+*.py[co]
+*/RCS/*
+.*
+node_modules
+myenv
+

@@ -7,7 +7,7 @@ import { Observable, Subject, forkJoin } from "rxjs";
   'providedIn': 'root'
 })
 export default class AuthService {
-  API_URL = "http://localhost:3000/api/user/";
+  API_URL = "https://infra-data-422500-h0.ew.r.appspot.com/api/user/";
   TOKEN_KEY = "token";
 
   user: User | null = null;
