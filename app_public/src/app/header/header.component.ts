@@ -1,124 +1,55 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
-import AuthenticationService from "../auth/auth.service";
-import User from "../models/user.model";
 import { MatSidenav } from '@angular/material/sidenav';
-import { Router } from '@angular/router';
 
 interface Link {
-    name: string;
-    path: string;
-    icon: string;
+  name: string;
+  path: string;
+  icon: string;
 }
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-    @ViewChild('sidenav') sidenav!: MatSidenav;
-    isMenuOpen = false;
-    isHome = true;
-    isAdmin = false;  // Flag to check if user is admin
-    links: Link[] = [];
+export class HeaderComponent {
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+  isMenuOpen = false;
+  isHome = true;
 
-    constructor(
-        private authService: AuthenticationService,
-        private router: Router
-    ) {
-        console.log('HeaderComponent initialized');
-    }
+  links: Link[] = [
+    { name: 'About', path: '#about', icon: 'info_outline' },
+    { name: 'Projects', path: '#projects', icon: 'assignment' },
+    { name: 'Contact', path: '#contact', icon: 'mail_outline' },
+  ];
 
-    ngOnInit(): void {
-        console.log('Component OnInit started');
-        this.authService.getUserListener().subscribe((user: User | null) => {
-            console.log('User status updated:', user);
-            this.updateAdminStatusAndLinks();  // Update based on local storage
-        });
-
-        // Initial check for admin status on component load
-        this.updateAdminStatusAndLinks();
-    }
-
-    updateAdminStatusAndLinks(): void {
-      console.log('Updating admin status...');
-      try {
-          const adminFlag = localStorage.getItem("admin");
-          this.isAdmin = adminFlag !== null ? JSON.parse(adminFlag) : false;
-          console.log('isAdmin:', this.isAdmin);
-      } catch (error) {
-          console.error('Error parsing admin flag:', error);
-          this.isAdmin = false;  // Assume non-admin if error occurs
-      }
-      this.updateLinks();
+  @HostListener('window:scroll', ['$event'])
+  checkIfHomeSection() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.isHome = scrollPosition < 200;
+    console.log('Home section visibility:', this.isHome);
   }
 
-
-    @HostListener('window:scroll', ['$event'])
-    checkIfHomeSection() {
-        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        this.isHome = scrollPosition < 200;
-        console.log('Home section visibility:', this.isHome);
-    }
-
-    toggleMenu() {
-        console.log('Toggling menu');
-        this.isMenuOpen = !this.isMenuOpen;
-        this.sidenav.toggle();
-        console.log('Menu open status:', this.isMenuOpen);
-    }
-
-    closeMenu() {
-        console.log('Closing menu');
-        if (this.isMenuOpen) {
-            this.isMenuOpen = false;
-            this.sidenav.close();
-            console.log('Menu closed');
-        }
-    }
-
-    updateLinks() {
-      console.log('Updating links based on admin status...');
-      this.links = this.isAdmin ? [
-          { name: 'Home', path: '/', icon: 'home' },
-          { name: 'Dashboard', path: '/dashboard', icon: 'list_alt' },
-          { name: "Access", path: "/administration", icon: 'dashboard' },
-          { name: 'Account', path: '/account', icon: 'person' },
-          { name: 'Logout', path: '/logout', icon: 'exit_to_app' }
-      ] : [
-          { name: 'Home', path: '/', icon: 'home' },
-          { name: 'About', path: '#about', icon: 'info_outline' },
-          { name: 'Projects', path: '#projects', icon: 'assignment' },
-          { name: 'Contact', path: '#contact', icon: 'mail_outline' },
-          { name: 'Admin', path: '/register', icon: 'admin_panel_settings' }
-      ];
-      console.log('Links updated:', this.links);
-      console.log('isAdmin:', this.isAdmin);  // Ensure this flag is as expected
-      console.log('Current links:', this.links.map(link => link.name).join(', '));  // Log current links to verify
+  toggleMenu() {
+    console.log('Toggling menu');
+    this.isMenuOpen = !this.isMenuOpen;
+    this.sidenav.toggle();
+    console.log('Menu open status:', this.isMenuOpen);
   }
 
-
-    navigate(path: string): void {
-        console.log('Navigating to:', path);
-        this.closeMenu(); // Close the menu regardless of the link clicked
-        if (path === '/logout') {
-            this.logout(); // Call logout method if the logout link is clicked
-            this.router.navigate(['/']); // Optionally redirect to the home page or login page
-        } else if (path.startsWith('#')) {
-            const element = document.querySelector(path);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-                console.log('Scrolled to:', path);
-            }
-        } else {
-            this.router.navigate([path]);
-            console.log('Router navigated to:', path);
-        }
+  closeMenu() {
+    console.log('Closing menu');
+    if (this.isMenuOpen) {
+      this.isMenuOpen = false;
+      this.sidenav.close();
+      console.log('Menu closed');
     }
+  }
 
-    logout() {
-        console.log('Logging out');
-        this.authService.logout();
-        this.updateAdminStatusAndLinks(); // Ensure admin status is updated on logout
-    }
+  navigate(path: string): void {
+    this.closeMenu();
+    const element = document.querySelector(path);
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
+    console.log('Scrolled to:', path);
+  }
 }

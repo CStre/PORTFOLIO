@@ -10,11 +10,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import AppRoutingModule from "./app.routing.module";
 import { HomeComponent } from "./home/home.component";
-import { DashboardComponent, TimeZonePipe } from "./dashboard/dashboard.component";
 import { HeaderComponent } from "./header/header.component";
-import { AccountComponent } from "./account/account.component";
-import { RegisterComponent } from "./auth/register/register.component";
-import { ManageComponent } from "./manage/manage.component";
+import { EmailService } from "./email.service";
+
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,12 +27,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     declarations: [
         AppComponent,
         HomeComponent,
-        DashboardComponent,
-        TimeZonePipe,
         HeaderComponent,
-        AccountComponent,
-        RegisterComponent,
-        ManageComponent,
     ],
     imports: [
         BrowserModule,
@@ -57,7 +50,8 @@ import { LayoutModule } from '@angular/cdk/layout';
       AppComponent
     ],
     providers: [
-        provideAnimationsAsync()
+        provideAnimationsAsync(),
+        EmailService
     ],
 })
 export class AppModule {}

@@ -60,3 +60,6 @@ myenv
 
 # next.js build output
 .next
+
+# protects evironmental variables
+.yaml

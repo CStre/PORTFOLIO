@@ -14,22 +14,11 @@ resources:
 
 env_variables:
   NODE_ENV: 'production'
-  DB_NAME: 'Cluster0'
-  DB_USER: 'collin'
-  DB_PASSWORD: 'hYllMbJ3najbf9Ha'
-  JWT_SECRET: 'qwertyuiopasdfghjklzxcvbnm'
-  CORS_ORIGIN: 'https://infra-data-422500-h0.ew.r.appspot.com'
 
 handlers:
 - url: /(.*\.(js|css|json|png|jpg|jpeg|svg|gif|ico|woff|woff2|ttf|map|pdf))$
   static_files: app_public/dist/app_public/browser/\1
   upload: app_public/dist/app_public/browser/.*\.(js|css|json|png|jpg|jpeg|svg|gif|ico|woff|woff2|ttf|map|pdf)$
-- url: /app_api/src/.*
-  script: auto
 - url: /.*
   static_files: app_public/dist/app_public/browser/index.html
   upload: app_public/dist/app_public/browser/index.html
-- url: /app.ts
-  script: auto
-- url: /bin/www.ts
-  script: auto

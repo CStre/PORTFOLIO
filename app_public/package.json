@@ -21,7 +21,9 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
     "moment-timezone": "^0.5.45",
+    "nodemailer": "^6.9.13",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
