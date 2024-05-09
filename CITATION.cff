@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+title: Collin Streitman Portfolio
+message: >-
+  If you use this software in any capacity, please cite it
+  as below
+type: software
+authors:
+  - given-names: Collin Michael Streitman
+    family-names: Collin Michael Streitman
+    email: collinm.streitman@gmail.com
+    orcid: 'https://orcid.org/0009-0006-5622-5526'
+identifiers:
+  - type: url
+    value: 'https://www.collinstreitman.com/'
+    description: This the deployed version of this repository
+repository-code: 'https://github.com/CStre/PORTFOLIO'
+url: 'https://www.collinstreitman.com/'
+abstract: >-
+  This repository is the backbone of a major full-stack web
+  development project, crafted specifically to be the
+  highlight of my resume portfolio. It uses the MEAN stack
+  (MongoDB, Express.js, Angular, Node.js) to showcase a wide
+  range of abilities and experiences in web development. The
+  project not only demonstrates skills in building and
+  managing websites but also covers a variety of Computer
+  Science fundamentals, from basic systems design to complex
+  algorithms. This diverse expertise reflects a well-rounded
+  understanding of the digital world, making this portfolio
+  a true representation of my professional journey in web
+  development and computer science.
+keywords:
+  - MEAN Stack
+  - Portfolio
+  - MongoDB
+  - NodeJS
+  - JavaScript
+  - Angular
+  - Express
+  - TypeScript
+  - Google-Cloud
+  - Google-Cloud-Platform
+  - Cloud-Functions
+  - Deployment
+license: MIT
+commit: 0ea51ed0011c5808ace0e5c213dac3602895a66f
+version: 1.0.1
+date-released: '2024-05-07'
