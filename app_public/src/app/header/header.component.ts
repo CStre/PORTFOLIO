@@ -26,7 +26,7 @@ export class HeaderComponent {
   @HostListener('window:scroll', ['$event'])
   checkIfHomeSection() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    this.isHome = scrollPosition < 200;
+    this.isHome = scrollPosition < 700;
     console.log('Home section visibility:', this.isHome);
   }
 

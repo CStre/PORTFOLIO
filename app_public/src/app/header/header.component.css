@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 .header {
-  z-index:1000;
+  z-index: 1000;
   background-color: rgba(0, 0, 0, 0);
   font-family: 'Poppins';
-  height:100px;
+  height: 100px;
   position: relative;
 }
 
@@ -41,11 +41,10 @@
   transform: scale(1.05);
 }
 
-
 .header .menu-button {
   position: fixed;
-  top: 20px; /* Position from the top of the viewport */
-  right: 20px;
+  top: 1%;
+  right: 1%;
   z-index: 1050;
   display: flex;
   align-items: center;
@@ -69,40 +68,40 @@
   padding: 5px;
   outline: none;
   text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
-  position: fixed; /* Position fixed to stay visible on scroll */
-  top: 20px; /* Position from the top of the viewport */
-  right: 20px; /* Position from the right of the viewport */
+  position: fixed;
   z-index: 1050;
 }
 
-.light-icons, .light-text {
-  color: #ccc; /* Example lighter color, adjust as needed */
+.header .light-text {
+  color: #ccc;
 }
 
-.header .menu-button mat-icon {
-  font-size: 1.5em;
-  width: auto;
-  height: auto;
-  z-index: 1000;
+.header .headerLink.active .headerLink:hover {
+  background-color: rgba(70, 72, 102, 0.1);
 }
 
+.header .menu-button {
+  transition: transform 0.3s ease;
+}
 
-.header .sidenav {
-  background-color: transparent;
-  z-index: 1000;
-  position: fixed; /* Ensures sidebar also stays in position */
-  min-width: 140px;
-  box-shadow: none;
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  height: 50%;
+.header .menu-button.rotate-icon {
+  transform: rotate(90deg);
+}
+
+.header .rotate-icon {
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.header .mat-sidenav-container .mat-sidenav-backdrop .mat-sidenav-shown {
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .header .headerList {
   list-style: none;
   padding: 0;
   margin: 0;
-  padding-top: 50%;
+  padding-top: 40%;
   text-align: left;
   width: 100%;
   z-index: 900;
@@ -111,11 +110,13 @@
 .header .headerListItem {
   width: 100%;
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .header .headerLink {
   display: flex;
-  align-items: center;
+  align-items: left;
+  text-align: left;
   padding: 15px 20px;
   width: 100%;
   font-size: 0.9em;
@@ -123,7 +124,7 @@
   color: #25274d;
   text-decoration: none;
   border-radius: 5px;
-  text-shadow: 2px 2px 4px rgba(66,66,66,0.1);
+  text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
   font-family: 'Poppins';
 }
 
@@ -143,23 +144,137 @@
   overflow: visible;
 }
 
-.header .headerLink.active, .headerLink:hover {
-  background-color: rgba(70, 72, 102, 0.1);
+@media (min-width: 1201px) {
+
+  .header .menu-button mat-icon {
+    font-size: 1.5em;
+    width: auto;
+    height: auto;
+    z-index: 1000;
+  }
+
+  .header .sidenav {
+    background-color: transparent;
+    z-index: 1000;
+    position: fixed;
+    box-shadow: none;
+    backdrop-filter: blur(80px);
+    border-bottom-left-radius: 15px;
+    height: fit-content;
+    text-align: left;
+  }
 }
 
-.header .menu-button {
-  transition: transform 0.3s ease;
+/* Media Queries */
+@media (max-width: 1200px) {
+  .header .toolbar-name {
+    padding-left: 60px;
+    font-size: 2em;
+  }
+
+  .header .sidenav {
+    background-color: transparent;
+    z-index: 1000;
+    position: fixed;
+    box-shadow: none;
+    backdrop-filter: blur(80px);
+    border-bottom-left-radius: 15px;
+    height: fit-content;
+    text-align: left;
+  }
+
+
+  .header .menu-button mat-icon {
+    top: 1.5%;
+    right: 1.5%;
+    font-size: 1.2em;
+  }
+
 }
 
-.header .menu-button.rotate-icon {
-  transform: rotate(90deg);
+@media (max-width: 992px) {
+  .header .toolbar-name {
+    padding-left: 30px;
+    font-size: 1.5em;
+  }
+
+  .header .sidenav {
+    background-color: #888282;
+    z-index: 1000;
+    position: fixed;
+    box-shadow: none;
+    border-bottom-left-radius: 10px;
+    height: fit-content;
+    text-align: left;
+  }
+
+  .header .menu-button mat-icon {
+    top: 1.5%;
+    right: 1.5%;
+    font-size: 1.2em;
+  }
 }
 
-.header .rotate-icon {
-  transition: transform 0.3s ease;
-  transform: rotate(90deg);
+@media (max-width: 768px) {
+  .header {
+    height: 80px;
+  }
+
+  .header .sidenav {
+    background-color: #888282;
+    z-index: 1000;
+    position: fixed;
+    box-shadow: none;
+    border-bottom-left-radius: 10px;
+    height: fit-content;
+    text-align: left;
+  }
+
+  .header .toolbar-name {
+    padding-left: 15px;
+    font-size: 1.2em;
+  }
+
+  .header .menu-button mat-icon {
+    top: 1.5%;
+    right: 1.5%;
+    font-size: 1.2em;
+  }
+
+  .header .headerLink {
+    padding: 10px 15px;
+    font-size: 0.8em;
+  }
 }
 
-.mat-sidenav-container .mat-sidenav-backdrop.mat-sidenav-shown {
-  background-color: rgba(0, 0, 0, 0) !important;
+@media (max-width: 576px) {
+  .header {
+    height: 60px;
+  }
+
+  .header .sidenav {
+    background-color: #888282;
+    z-index: 1000;
+    position: fixed;
+    box-shadow: none;
+    border-bottom-left-radius: 10px;
+    height: fit-content;
+    text-align: left;
+  }
+
+  .header .toolbar-name {
+    padding-left: 10px;
+    font-size: 1em;
+  }
+
+  .header .menu-button mat-icon {
+    top: 2%;
+    right: 2.3%;
+    font-size: 1em;
+  }
+
+  .header .headerLink {
+    padding: 8px 10px;
+    font-size: 0.7em;
+  }
 }

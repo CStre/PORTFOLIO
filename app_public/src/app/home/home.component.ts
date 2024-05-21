@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmailService } from '../email.service';
+import Typewriter from 'typewriter-effect/dist/core';
 
 import 'bootstrap';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./styling/home.component.css', './styling/home-banner.component.css', './styling/home-about.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
   formSubmitted = false;
   currentImageIndex = 0;
   tabs = ['Education', 'Tech Stack', 'Leadership', 'Professional'];
@@ -45,6 +46,29 @@ export class HomeComponent {
     { src: "assets/images/13.svg", message: "Cultivating a passion for history, architecture, and photography, seeking to capture and appreciate the essence of different eras and aesthetic forms through the lens." },
     { src: "assets/images/14.svg", message: "Valuing unique perspectives and individual experiences, thriving in environments that nurture intellectual engagement, diversity, and the free exchange of ideas." },
   ];
+
+  ngAfterViewInit(): void {
+    const typewriter1 = new Typewriter('#typewriter1', {
+      loop: true,
+      delay: 75,
+    });
+
+    typewriter1
+      .typeString("Hi, I'm Collin.")
+      .pauseFor(5000)
+      .start();
+
+    const typewriter2 = new Typewriter('#typewriter2', {
+      loop: true,
+      delay: 75,
+    });
+
+    typewriter2
+      .pauseFor(2000) // Adjust this to ensure it starts after the first message
+      .typeString('Welcome to my Portfolio!')
+      .pauseFor(5000)
+      .start();
+  }
 
   onSubmit() {
     if (this.downloadForm.valid) {

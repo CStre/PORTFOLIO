@@ -1,0 +1,134 @@
+.homepage .home .fullscreen-header {
+  background: url('../../../assets/images/banner.svg') no-repeat right center/cover;
+  min-height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  color: white;
+  padding-left: 20px;
+  transition: background-position 0.3s ease, background-size 0.3s ease;
+}
+
+.homepage .home .message {
+  padding-top: 20%;
+  text-align: left;
+  margin-left: 8%;
+  font-family: 'Poppins';
+}
+
+.homepage .home .message h1, .homepage .home .message p {
+  margin: 10;
+}
+
+.homepage .home .message h1 {
+  font-size: 4.5rem;
+  font-weight: 1000;
+  padding-bottom: 20px;
+  color: #2e9cca;
+  text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
+  transition: transform 0.3s ease;
+  font-family: 'Poppins';
+}
+
+.homepage .home .message p {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ccc;
+  text-shadow: 2px 2px 4px rgba(66,66,66,0.1);
+  transition: transform 0.3s ease;
+  font-family: 'Poppins';
+}
+
+.homepage .home .message h1:hover, .homepage .home .message p:hover {
+  transform: scale(1.05);
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 1200px) {
+  .homepage .home .fullscreen-header {
+    background-position: calc(75%);
+    padding-left: 15px;
+  }
+
+  .homepage .home .message {
+    padding-top: 30%;
+    text-align: left;
+    margin-left: 6%;
+    font-family: 'Poppins';
+  }
+
+  .homepage .home .message h1 {
+    font-size: 4rem;
+  }
+
+  .homepage .home .message p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .homepage .home .fullscreen-header {
+    background-position: calc(70%);
+    padding-left: 10px;
+  }
+
+  .homepage .home .message {
+    padding-top: 30%;
+    text-align: left;
+    margin-left: 4%;
+    font-family: 'Poppins';
+  }
+
+  .homepage .home .message h1 {
+    font-size: 3.5rem;
+  }
+
+  .homepage .home .message p {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage .home .fullscreen-header {
+    background-position: calc(65%);
+    padding-left: 5px;
+  }
+
+  .homepage .home .message {
+    padding-top: 35%;
+    text-align: left;
+    margin-left: 4%;
+    font-family: 'Poppins';
+  }
+
+  .homepage .home .message h1 {
+    font-size: 3rem;
+  }
+
+  .homepage .home .message p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .homepage .home .fullscreen-header {
+    background-position: calc(65%);
+    padding-left: 2px;
+  }
+
+  .homepage .home .message {
+    padding-top: 40%;
+    text-align: left;
+    margin-left: 4%;
+    font-family: 'Poppins';
+  }
+
+  .homepage .home .message h1 {
+    font-size: 2.3rem;
+  }
+
+  .homepage .home .message p {
+    font-size: 1rem;
+  }
+}

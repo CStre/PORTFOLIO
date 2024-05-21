@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+.homepage {
+  margin: 0;
+  padding: 0;
+  height: -30%;
+  margin-top: -14%;
+  background-color: #25274d;
+  width: 100%;
+}
+
+.homepage html {
+  scroll-behavior: smooth;
+}
+
+/* Fullscreen header styles */
+
+
+.projects-section {
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 20px;
+  margin-bottom: 5%;
+}
+
+.projects-section .section-header h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.projects-section .grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.projects-section .grid-item {
+  background: #AAABB8;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Animation effects */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: #25274d;
+  font-family: 'Poppins';
+
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This pushes the child elements to the start and end of the container */
+}
+
+.projects-section .grid-item h3{
+  font-weight: 900;
+  font-size: 2em;
+}
+
+.projects-section .grid-item p{
+  font-weight: 600;
+  font-size: 0.9em;
+  text-align: justify;
+}
+
+.projects-section .grid-item:hover {
+  transform: translateY(-10px); /* Moves the item up on hover */
+  background-color: #29648A; /* Changes background color on hover */
+  color: #AAABB8;
+}
+
+.projects-section .btn {
+  padding: 5px 10px;
+  margin-top: 5%;
+  background-color: #464866;
+  color: #aaabb8;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Poppins';
+  cursor: pointer;
+  outline: none;
+  display: block;
+  margin-left: 60%;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-error {
+  color: rgb(204, 0, 0);
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.projects-section .btn:hover {
+  background-color: #aaabb8;
+  color: #464866;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.homepage .projects-section .section-header h2 {
+  font-size: 4em;
+  font-family: 'Poppins';
+  color: #AAABB8;
+  font-weight: 700;
+  text-align: left;
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 1200px; /* Ensures the section doesn't get too wide on larger screens */
+  margin: auto; /* Centers the section horizontally */
+  background-color: #25274d;
+  min-height: 100vh;
+}
+
+.contact-section h2 {
+  font-size: 4em;
+  font-family: 'Poppins';
+  color: #AAABB8;
+  font-weight: 700;
+  text-align: left;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.contact-section .resume-download h2 {
+  font-size: 2em;
+  font-family: 'Poppins';
+  color: #AAABB8;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 0%;
+}
+
+.contact-section .contact-info h3 {
+  font-size: 1.5em;
+  font-family: 'Poppins';
+  color: #AAABB8;
+  font-weight: 600;
+  text-align: left;
+  padding-top: 0%;
+  padding-bottom: 0%;
+}
+
+.contact-section .contact-info img {
+  padding-right: 3%;
+}
+
+.contact-section .contact-info, .resume-download {
+  flex: 1; /* Assign equal width to both columns */
+  padding: 0px;
+  margin: 0px; /* Ensures space between sections if they wrap on smaller screens */
+}
+
+.contact-section .contact-info, .icon{
+  flex: 1; /* Assign equal width to both columns */
+  padding: 0px;
+  margin: 0px; /* Ensures space between sections if they wrap on smaller screens */
+  max-height: 40px;
+  vertical-align: middle;
+}
+
+.icons img {
+  max-height: 40px;
+  transition: transform 0.2s ease; /* Smooth transition for the transform property */
+}
+
+.icons img:hover, .icons img:focus {
+  transform: translateY(-10px); /* Moves the image up by 10px */
+}
+
+.contact-section .resume-download form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Adds consistent spacing between form elements */
+  border-radius: 10px;
+  padding: 20px; /* Padding around the form elements inside the container */
+  align-items: center; /* Centers the form elements horizontally */
+}
+
+.contact-section .resume-download input {
+  padding: 10px; /* Ensures inputs are easy to interact with */
+  width: 75%; /* Makes inputs extend full width of the form */
+  background-color: #464866; /* Dark grey background for inputs */
+  color: #ccc; /* White text color for input */
+  border: none; /* Removes the border around the inputs */
+  border-radius: 5px; /* Rounds the corners of the inputs */
+  outline: none; /* Removes the outline when the input is focused */
+  margin: 0 20px; /* Ensures some space around inputs if needed */
+  font-family: 'Poppins';
+  font-size: 1em;
+  height: 35px;
+}
+
+.contact-section input::placeholder {
+  color: #ccc; /* Light grey color for placeholders, visible against the dark background */
+  font-family: 'Poppins';
+}
+
+.contact-section .resume-download button {
+  padding: 10px;
+  width: 30%; /* Adjusts the width to be proportional within the form */
+  border-radius: 5px;
+  margin-top: 10px; /* Adds margin above the button to separate from inputs */
+  height: 50px;
+  font-family: 'Poppins';
+}
+
+.contact-section input::placeholder {
+  color: #ccc; /* Light grey color for placeholders to be visible on dark background */
+  font-weight: 500;
+}
+
+.contact-section button:disabled {
+  background-color: #464866;
+  color: #ccc;
+}
+
+.contact-section button:hover {
+  background-color: #ccc;
+  color: #464866;
+}
+
+.contact-section button:not(:disabled) {
+  background-color: #0056b3; /* Example blue background for active button */
+  color: white;
+  cursor: pointer;
+}
