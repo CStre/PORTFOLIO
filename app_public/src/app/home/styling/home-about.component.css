@@ -198,7 +198,6 @@
 
   .homepage .about .image-descriptions {
     font-size: 1.1em;
-    margin-top: -9%;
     padding-right: 4%;
   }
 
@@ -216,8 +215,9 @@
 
   .homepage .about .image-descriptions {
     font-size: 1em;
-    margin-top: -9%;
-    padding-right: 4%;
+    padding-right: 5%;
+    margin-left: -5%;
+    margin-top: -10%;
   }
 }
 
@@ -225,13 +225,15 @@
   .homepage .about .section-header p {
     text-align: center;
     font-size: 0.9em;
-    /* Reduce font size for large mobile devices */
+    margin-left: -10%;
+    margin-top: -20%;
   }
 
   .homepage .about .image-descriptions {
     font-size: 0.9em;
-    margin-top: -9%;
     padding-right: 5%;
+    margin-left: -8%;
+    margin-top: -15%;
   }
 }
 
@@ -239,13 +241,14 @@
   .homepage .about .section-header p {
     text-align: center;
     font-size: 0.8em;
-    /* Further reduce font size for smaller mobile phones */
+
   }
 
   .homepage .about .image-descriptions {
     font-size: 0.8em;
-    margin-top: -9%;
     padding-right: 5%;
+    margin-left: -10%;
+    margin-top: -20%;
   }
 }
 
@@ -258,9 +261,10 @@
 
   .homepage .about .image-descriptions {
     font-size: 0.7em;
-    margin-top: -40%;
-    margin-right: 8%;
-    margin-left: -10%;
+    margin-left: -15%;
+    margin-top: -30%;
+    line-height: 150%;
+    margin-right: 4%;
   }
 }
 
@@ -348,7 +352,7 @@
   margin-top: 10px;
   list-style-type: none;
   padding-left: 30px;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: 'Poppins';
   color: #29648a;
 }
@@ -376,6 +380,104 @@
   background-color: transparent;
   border-color: transparent;
   color: #2e9cca;
+}
+
+
+@media (max-width: 1224px) {
+  .homepage .about .nav-tabs {
+    font-size: 1.3em;
+    /* Slightly reduce font size for large tablets and small laptops */
+  }
+
+  .homepage .about .nav-tabs .nav-item {
+    margin: 0% 2%;
+  }
+
+  .homepage .about .nav-tabs .nav-link {
+    padding: 0.4rem 0.8rem;
+    /* Adjust padding */
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage .about .nav-tabs {
+    font-size: 1.2em;
+    /* Further reduce font size for tablets */
+    margin-left: -10%;
+  }
+
+  .homepage .about .nav-tabs .nav-item {
+    margin: 0% 1.5%;
+  }
+
+  .homepage .about .nav-tabs .nav-link {
+    padding: 0.3rem 0.7rem;
+    /* Adjust padding */
+  }
+
+  .homepage .about .nav-tabs .nav-link.active {
+    color: #2e9cca;
+    border-bottom: 3px solid #2e9cca;
+  }
+}
+
+@media (max-width: 600px) {
+  .homepage .about .nav-tabs {
+    font-size: 0.8em;
+    /* Reduce font size for large mobile devices */
+    margin-left: -10%;
+  }
+
+  .homepage .about .nav-tabs .nav-item {
+    margin: 0% 1%;
+  }
+
+  .homepage .about .nav-tabs .nav-link {
+    padding: 0.2rem 0.6rem;
+    /* Adjust padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage .about .nav-tabs {
+    font-size: 0.8em;
+    /* Further reduce font size for smaller mobile phones */
+    margin-left: -13%;
+  }
+
+  .homepage .about .nav-tabs .nav-item {
+    margin: 5px 0;
+    /* Add vertical margin between nav items */
+  }
+
+  .homepage .about .nav-tabs .nav-link {
+    padding: 0.1rem 0.5rem;
+    /* Adjust padding */
+  }
+
+  .homepage .about .nav-tabs .nav-link.active {
+    color: #2e9cca;
+    border-bottom: 2px solid #2e9cca;
+  }
+}
+
+@media (max-width: 360px) {
+  .homepage .about .nav-tabs {
+    font-size: 0.5em;
+    /* Smallest font size for very small mobile screens */
+    margin-left: -20%;
+  }
+
+  .homepage .about .nav-tabs .nav-item {
+    margin: 4px 0;
+    /* Adjust margin for very small screens */
+  }
+
+  .homepage .about .nav-tabs .nav-link {
+    padding: 0.1rem 0.4rem;
+    /* Adjust padding */
+  }
+
 }
 
 .homepage .about .header-row {
@@ -407,7 +509,9 @@
   text-align: center !important;
 }
 
-.homepage .section-container {
+/* --------------Education Section-------------------- */
+
+.homepage .education .section-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -415,8 +519,6 @@
   width: 100%;
   gap: 5%;
 }
-
-/* --------------Education Section-------------------- */
 
 .homepage .education-left-column {
   width: 40%;
@@ -429,7 +531,6 @@
   width: 45%;
   padding: 0px;
   margin-top: 3%;
-
 }
 
 .homepage .my-place .text-section .education {
@@ -487,11 +588,177 @@
   padding-top: 2%;
 }
 
+/* Responsive Styles */
+
+@media (max-width: 1375px) {
+
+  .homepage .my-place .text-section .education h1,
+  .homepage .my-place .text-section .education h2,
+  .homepage .my-place .text-section .education p {
+    font-size: 9pt; /* Slightly reduce font size */
+  }
+
+  .homepage .my-place .text-section .education li,
+  .homepage .my-place .text-section .education ol {
+    font-size: 7pt;
+  }
+
+  .homepage .my-place .text-section .education h3 {
+    font-size: 8pt; /* Slightly reduce font size */
+  }
+
+  .homepage .my-place .text-section .education .fav {
+    font-size: 10pt; /* Slightly reduce font size */
+  }
+}
+
+@media (max-width: 1124px) {
+  .homepage .education-left-column,
+  .homepage .education-right-column {
+    width: 40%; /* Adjust widths for large tablets and small laptops */
+    margin-left: 0;
+    padding-top: 2%;
+  }
+
+  .homepage .my-place .text-section .education {
+    margin-left: 4%;
+  }
+
+  .homepage .my-place .text-section .education h1,
+  .homepage .my-place .text-section .education h2,
+  .homepage .my-place .text-section .education h3,
+  .homepage .my-place .text-section .education p {
+    font-size: 9pt; /* Slightly reduce font size */
+  }
+
+  .homepage .my-place .text-section .education li,
+  .homepage .my-place .text-section .education ol {
+    font-size: 7pt;
+  }
+
+  .homepage .my-place .text-section .education .fav {
+    font-size: 10pt; /* Slightly reduce font size */
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage .education-left-column,
+  .homepage .education-right-column {
+    width: 100%; /* Full width for tablets */
+    margin-left: 0;
+    padding-top: 1%;
+  }
+
+  .homepage .my-place .text-section .education {
+    margin-left: 3%;
+  }
+
+  .homepage .my-place .text-section .education h1,
+  .homepage .my-place .text-section .education h2,
+  .homepage .my-place .text-section .education h3,
+  .homepage .my-place .text-section .education p,
+  .homepage .my-place .text-section .education li,
+  .homepage .my-place .text-section .education ol {
+    font-size: 8pt; /* Further reduce font size */
+  }
+
+  .homepage .my-place .text-section .education .fav {
+    font-size: 10pt; /* Further reduce font size */
+  }
+}
+
+@media (max-width: 600px) {
+  .homepage .education-left-column,
+  .homepage .education-right-column {
+    width: 100%; /* Full width for large mobile devices */
+    margin-left: 150%;
+    padding-top: 1%;
+  }
+
+  .homepage .my-place .text-section .education {
+    margin-left: 2%;
+  }
+
+  .homepage .my-place .text-section .education h1,
+  .homepage .my-place .text-section .education h2,
+  .homepage .my-place .text-section .education h3,
+  .homepage .my-place .text-section .education p,
+  .homepage .my-place .text-section .education li,
+  .homepage .my-place .text-section .education ol {
+    font-size: 7pt; /* Further reduce font size */
+  }
+
+  .homepage .my-place .text-section .education .fav {
+    font-size: 12pt; /* Further reduce font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage .education-left-column,
+  .homepage .education-right-column {
+    width: 100%; /* Full width for smaller mobile devices */
+    margin-left: 0;
+    padding-top: 1%;
+  }
+
+  .homepage .my-place .text-section .education {
+    margin-left: 1%;
+  }
+
+  .homepage .my-place .text-section .education h1,
+  .homepage .my-place .text-section .education h2,
+  .homepage .my-place .text-section .education h3,
+  .homepage .my-place .text-section .education p,
+  .homepage .my-place .text-section .education li,
+  .homepage .my-place .text-section .education ol {
+    font-size: 6pt; /* Further reduce font size */
+  }
+
+  .homepage .my-place .text-section .education .fav {
+    font-size: 11pt; /* Further reduce font size */
+  }
+}
+
+@media (max-width: 360px) {
+  .homepage .education-left-column,
+  .homepage .education-right-column {
+    width: 100%; /* Full width for very small mobile devices */
+    margin-left: 0;
+    padding-top: 1%;
+  }
+
+  .homepage .my-place .text-section .education {
+    margin-left: 0;
+  }
+
+  .homepage .my-place .text-section .education h1,
+  .homepage .my-place .text-section .education h2,
+  .homepage .my-place .text-section .education h3,
+  .homepage .my-place .text-section .education p,
+  .homepage .my-place .text-section .education li,
+  .homepage .my-place .text-section .education ol {
+    font-size: 5pt; /* Smallest font size */
+  }
+
+  .homepage .my-place .text-section .education .fav {
+    font-size: 10pt; /* Smallest font size */
+  }
+}
+
 /* Tech Stack Section */
 
 .homepage .my-place .text-section .tech-stack {
   font-family: 'Poppins';
   color: #AAABB8;
+}
+
+.homepage .tech-stack .section-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 5%;
 }
 
 .homepage .my-place .text-section .tech-stack .section-container {

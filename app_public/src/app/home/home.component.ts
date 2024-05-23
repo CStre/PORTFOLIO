@@ -14,7 +14,7 @@ import 'bootstrap';
 export class HomeComponent implements AfterViewInit {
   formSubmitted = false;
   currentImageIndex = 0;
-  tabs = ['Education', 'Tech Stack', 'Leadership', 'Professional'];
+  tabs = ['Education', 'Technology', 'Leadership', 'Professional'];
   selectedTab = this.tabs[0];
 
   downloadForm = new FormGroup({
