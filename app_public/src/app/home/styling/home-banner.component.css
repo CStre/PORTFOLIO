@@ -132,3 +132,26 @@
     font-size: 1rem;
   }
 }
+
+@media (max-width: 360px) {
+  .homepage .home .fullscreen-header {
+    background-position: calc(70%);
+    padding-left: 2px;
+    margin-top: -30%;
+  }
+
+  .homepage .home .message {
+    padding-top: 70%;
+    text-align: left;
+    margin-left: 10%;
+    font-family: 'Poppins';
+  }
+
+  .homepage .home .message h1 {
+    font-size: 1.8rem;
+  }
+
+  .homepage .home .message p {
+    font-size: 1.2rem;
+  }
+}

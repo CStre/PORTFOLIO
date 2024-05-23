@@ -6,12 +6,14 @@
   font-family: 'Poppins';
   height: 100px;
   position: relative;
+  overflow: visible; /* Ensure overflow is visible */
 }
 
 .header .sidenav-container {
   height: calc(100%);
   width: 100%;
   background-color: transparent;
+  overflow: visible; /* Ensure overflow is visible */
 }
 
 .header .transparent-toolbar {
@@ -23,6 +25,7 @@
   box-shadow: none;
   padding: 0 15px;
   position: relative;
+  overflow: visible; /* Ensure overflow is visible */
 }
 
 .header .toolbar-name {
@@ -35,6 +38,7 @@
   text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
   transition: transform 0.3s ease;
   position: absolute;
+  overflow: visible; /* Ensure overflow is visible */
 }
 
 .header .toolbar-name:hover {
@@ -55,21 +59,11 @@
   padding: 5px;
   outline: none;
   text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
+  overflow: visible; /* Ensure overflow is visible */
 }
 
 .header .menu-button .light-icon {
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #2e9cca;
-  border: none;
-  background: none;
-  padding: 5px;
-  outline: none;
-  text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
-  position: fixed;
-  z-index: 1050;
 }
 
 .header .light-text {
@@ -126,6 +120,7 @@
   border-radius: 5px;
   text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.1);
   font-family: 'Poppins';
+  overflow: visible; /* Ensure overflow is visible */
 }
 
 .header .large-icon {
@@ -133,7 +128,7 @@
   color: #25274d;
   font-size: 24px;
   text-shadow: 2px 2px 4px #4242421a;
-  overflow: visible;
+  overflow: visible; /* Ensure overflow is visible */
 }
 
 .header .large-icon-light {
@@ -141,7 +136,7 @@
   color: #2e9cca;
   font-size: 24px;
   text-shadow: 2px 2px 4px #4242421a;
-  overflow: visible;
+  overflow: visible; /* Ensure overflow is visible */
 }
 
 @media (min-width: 1201px) {
@@ -276,5 +271,57 @@
   .header .headerLink {
     padding: 8px 10px;
     font-size: 0.7em;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    height: 60px;
+  }
+
+  .header .sidenav {
+    background-color: #888282;
+    z-index: 1000;
+    position: fixed;
+    box-shadow: none;
+    border-bottom-left-radius: 10px;
+    height: fit-content;
+    text-align: left;
+  }
+
+  .header .toolbar-name {
+    padding-left: 2.3%;
+    font-size: 0.8em;
+    margin-bottom: 5%;
+  }
+
+  .header .menu-button mat-icon {
+    top: 2%;
+    right: 2.3%;
+    font-size: 1em;
+  }
+
+  .header .headerLink {
+    padding: 8px 10px;
+    font-size: 0.5em;
+  }
+
+  .header .headerLink span {
+    padding: 8px 10px;
+    font-size: 0.5em;
+    visibility: hidden;
+  }
+
+  .header .headerList {
+    padding-top: 60%;
+  }
+
+  .header .headerList mat-icon {
+    font-size: 2.5em;
+    align-items: left;
+    margin-right: -70%;
+    justify-content: left;
+    text-align: left;
+    padding: 0%;
   }
 }

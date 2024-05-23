@@ -3,11 +3,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color:#25274d;
+  background-color: #25274d;
   margin-left: 5%;
   margin-right: 5%;
 }
-
 
 .homepage .about .image-container img {
   width: 100%;
@@ -19,12 +18,10 @@
   transform-style: preserve-3d;
 }
 
-
 .homepage .about .image-container {
-  perspective: 1000px; /* Add perspective to make the 3D effect more noticeable */
+  perspective: 1000px;
+  /* Add perspective to make the 3D effect more noticeable */
 }
-
-
 
 .homepage .about .my-place .image-container {
   width: 40%;
@@ -35,8 +32,67 @@
   align-self: flex-start;
   text-align: left;
   width: 80%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .homepage .about .my-place {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .homepage .about .my-place .image-container,
+  .homepage .about .my-place .text-section {
+    width: 100%;
+  }
+
+  .homepage .about .my-place .text-section {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage .about .my-place {
+    padding: 15px;
+  }
+
+  .homepage .about .my-place .image-container,
+  .homepage .about .my-place .text-section {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .homepage .about .my-place .text-section {
+    padding: 10px;
+  }
+
+  .homepage .about .image-container img {
+    width: 100%;
+    height: 100%;
+    margin-top: -20px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+  }
 
 }
+
+@media (max-width: 480px) {
+  .homepage .about .my-place {
+    padding: 10px;
+  }
+
+  .homepage .about .my-place .image-container img {
+    margin-top: 0;
+  }
+
+  .homepage .about .my-place .text-section {
+    font-size: 1em;
+  }
+}
+
 
 .homepage .about .section-header h2 {
   font-size: 1em;
@@ -56,6 +112,52 @@
   text-align: center;
   padding-top: 5%;
   padding-bottom: 3%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .homepage .about .section-header-center h2 {
+    font-size: 3.5em;
+    /* Slightly reduce font size for large tablets and small laptops */
+    padding-top: 4.5%;
+    padding-bottom: 2.5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage .about .section-header-center h2 {
+    font-size: 3em;
+    /* Further reduce font size for tablets */
+    padding-top: 4%;
+    padding-bottom: 2%;
+  }
+}
+
+@media (max-width: 600px) {
+  .homepage .about .section-header-center h2 {
+    font-size: 2.5em;
+    /* Reduce font size for large mobile devices */
+    padding-top: 3.5%;
+    padding-bottom: 1.5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage .about .section-header-center h2 {
+    font-size: 2em;
+    /* Further reduce font size for smaller mobile phones */
+    padding-top: 3%;
+    padding-bottom: 1%;
+  }
+}
+
+@media (max-width: 360px) {
+  .homepage .about .section-header-center h2 {
+    font-size: 1.8em;
+    /* Smallest font size for very small mobile screens */
+    padding-top: 10%;
+    padding-bottom: 0.5%;
+  }
 }
 
 .homepage .about .section-header p {
@@ -86,6 +188,81 @@
   padding-left: 30px;
 }
 
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .homepage .about .section-header p {
+    text-align: center;
+    font-size: 1.1em;
+    /* Slightly reduce font size for large tablets and small laptops */
+  }
+
+  .homepage .about .image-descriptions {
+    font-size: 1.1em;
+    margin-top: -9%;
+    padding-right: 4%;
+  }
+
+  .homepage .about .sub-heading {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage .about .section-header p {
+    text-align: center;
+    font-size: 1em;
+    /* Further reduce font size for tablets */
+  }
+
+  .homepage .about .image-descriptions {
+    font-size: 1em;
+    margin-top: -9%;
+    padding-right: 4%;
+  }
+}
+
+@media (max-width: 600px) {
+  .homepage .about .section-header p {
+    text-align: center;
+    font-size: 0.9em;
+    /* Reduce font size for large mobile devices */
+  }
+
+  .homepage .about .image-descriptions {
+    font-size: 0.9em;
+    margin-top: -9%;
+    padding-right: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage .about .section-header p {
+    text-align: center;
+    font-size: 0.8em;
+    /* Further reduce font size for smaller mobile phones */
+  }
+
+  .homepage .about .image-descriptions {
+    font-size: 0.8em;
+    margin-top: -9%;
+    padding-right: 5%;
+  }
+}
+
+@media (max-width: 360px) {
+  .homepage .about .section-header p {
+    text-align: center;
+    font-size: 0.7em;
+    /* Smallest font size for very small mobile screens */
+  }
+
+  .homepage .about .image-descriptions {
+    font-size: 0.7em;
+    margin-top: -40%;
+    margin-right: 8%;
+    margin-left: -10%;
+  }
+}
 
 .homepage .about button {
   padding: 15px 30px;
@@ -106,7 +283,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.homepage .about button:hover, .homepage .about button:focus {
+.homepage .about button:hover,
+.homepage .about button:focus {
   background-color: #aaabb8;
   color: #464866;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -118,13 +296,51 @@
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-
-@media screen and (max-width: 768px) {
-  .homepage .about .my-place {
-    flex-direction: column;
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .homepage .about button {
+    padding: 14px 28px;
+    /* Slightly reduce padding for large tablets and small laptops */
+    font-size: 15px;
+    /* Slightly reduce font size */
   }
 }
 
+@media (max-width: 768px) {
+  .homepage .about button {
+    padding: 13px 26px;
+    /* Further reduce padding for tablets */
+    font-size: 14px;
+    /* Further reduce font size */
+  }
+}
+
+@media (max-width: 600px) {
+  .homepage .about button {
+    padding: 12px 24px;
+    /* Reduce padding for large mobile devices */
+    font-size: 13px;
+    /* Reduce font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage .about button {
+    padding: 11px 22px;
+    /* Further reduce padding for smaller mobile phones */
+    font-size: 12px;
+    /* Further reduce font size */
+  }
+}
+
+@media (max-width: 360px) {
+  .homepage .about button {
+    padding: 10px 20px;
+    /* Smallest padding for very small mobile screens */
+    font-size: 11px;
+    /* Smallest font size */
+  }
+}
 
 .homepage .about .nav-tabs {
   display: flex;
@@ -135,14 +351,11 @@
   font-size: 1.5em;
   font-family: 'Poppins';
   color: #29648a;
-
 }
-
 
 .homepage .about .nav-tabs .nav-item {
   margin: 0% 3%;
 }
-
 
 .homepage .about .nav-tabs .nav-link {
   font-weight: bold;
@@ -181,28 +394,12 @@
   margin-bottom: 0px;
 }
 
-
-.homepage .about .my-place  {
+.homepage .about .my-place {
   margin-bottom: 5%;
 }
 
 .homepage .about .my-place .text-section .small-section {
   display: flex;
-}
-
-.homepage .about .my-place .text-section .small-section .small-section-left {
-  margin-left: 10%;
-}
-
-.homepage .about .my-place .text-section .small-section .small-section-right {
-  margin-right: 10%;
-}
-
-.homepage .about .my-place .text-section .small-section .small-section-left,
-.homepage .about .my-place .text-section .small-section .small-section-right {
-  flex: 1;
-  align-self: flex-start;
-  text-align: center !important;
 }
 
 .homepage .about .my-place .text-section .small-section .small-section-left p,
@@ -219,29 +416,20 @@
   gap: 5%;
 }
 
-/* ---------------------------------- */
+/* --------------Education Section-------------------- */
 
-.homepage .full-column {
-  width: auto;
-  padding: 0px 0px;
-  border-radius: 0px;
-  margin-bottom: 0px;
+.homepage .education-left-column {
+  width: 40%;
+  padding: 0px;
   margin-left: 7%;
-  margin-right: 7%;
+  padding-top: 3%;
 }
 
-.homepage .left-column {
-  flex: 1;
+.homepage .education-right-column {
+  width: 45%;
   padding: 0px;
-}
+  margin-top: 3%;
 
-.tech-stack.ng-star-inserted {
-  margin-right: 17%;
-}
-
-.homepage .right-column {
-  flex: 1;
-  padding: 0px;
 }
 
 .homepage .my-place .text-section .education {
@@ -264,6 +452,14 @@
   color: #2e9cca;
 }
 
+.homepage .my-place .text-section .education .fav {
+  font-weight: 600;
+  font-size: 15pt;
+  line-height: 0.1;
+  color: #2e9cca;
+  text-align: center;
+}
+
 .homepage .my-place .text-section .education h3 {
   font-weight: 800;
   font-size: 10pt;
@@ -271,18 +467,24 @@
   line-height: 0.1;
 }
 
-.homepage .my-place .text-section .education p,
-.homepage .my-place .text-section .education ol,
-.homepage .my-place .text-section .education li {
+.homepage .my-place .text-section .education p {
   font-weight: 800;
   font-size: 8pt;
+  margin-top: -2%;
 }
 
-.homepage .my-place .text-section .education ol,
 .homepage .my-place .text-section .education li {
   font-weight: 800;
-  font-size: 8pt;
-  line-height: 1.7;
+  font-size: 10pt;
+  padding-left: 3%;
+  padding-top: 1%;
+}
+
+.homepage .my-place .text-section .education ol {
+  font-weight: 800;
+  font-size: 10pt;
+  padding-left: 10%;
+  padding-top: 2%;
 }
 
 /* Tech Stack Section */
@@ -292,13 +494,22 @@
   color: #AAABB8;
 }
 
-.homepage .my-place .text-section .tech-stack .section-container .section {
-    flex: 1; /* Each section takes up equal space */
-    min-width: 150px; /* Minimum width of each section */
-    padding: 0px;
+.homepage .my-place .text-section .tech-stack .section-container {
+  margin-left: 5%;
+  max-width: 90%;
 }
 
-.homepage .my-place .text-section .tech-stack  h1 {
+.homepage .my-place .text-section .tech-stack .section-container .section {
+  flex: 1;
+}
+
+.homepage .my-place .text-section .tech-stack .section-container .section .small-section,
+.homepage .my-place .text-section .tech-stack .section-container .section .small-section-left,
+.homepage .my-place .text-section .tech-stack .section-container .section .small-section-right {
+  flex: 1;
+}
+
+.homepage .my-place .text-section .tech-stack h1 {
   font-weight: 800;
   font-size: 12pt;
   line-height: 0.5;
@@ -306,9 +517,9 @@
   text-align: center;
 }
 
-.homepage .my-place .text-section .tech-stack  p {
+.homepage .my-place .text-section .tech-stack p {
   font-weight: 800;
-  font-size: 8pt;
+  font-size: 9pt;
   text-align: center;
 }
 
@@ -319,22 +530,29 @@
   color: #AAABB8;
 }
 
-.homepage .my-place .text-section .leadership  .header-row {
+.homepage .my-place .text-section .leadership .full-column {
+  margin-right: 10%;
+  margin-left: 12%;
+  padding-top: 3%;
+}
+
+
+.homepage .my-place .text-section .leadership .header-row {
   margin-bottom: 0px;
 }
 
-.homepage .my-place .text-section .leadership  h1 {
+.homepage .my-place .text-section .leadership h1 {
   font-weight: 800;
   font-size: 12pt;
   line-height: 0.5;
   color: #2e9cca;
 }
 
-.homepage .my-place .text-section .leadership  .header-row {
+.homepage .my-place .text-section .leadership .header-row {
   margin-bottom: 1em;
 }
 
-.homepage .my-place .text-section .leadership  h2 {
+.homepage .my-place .text-section .leadership h2 {
   font-weight: 600;
   font-size: 10pt;
   line-height: 0.1;
@@ -346,6 +564,12 @@
 .homepage .my-place .text-section .professional {
   font-family: 'Poppins';
   color: #AAABB8;
+}
+
+.homepage .my-place .text-section .professional .full-column {
+  margin-right: 10%;
+  margin-left: 12%;
+  padding-top: 3%;
 }
 
 .homepage .my-place .text-section .professional h1 {
